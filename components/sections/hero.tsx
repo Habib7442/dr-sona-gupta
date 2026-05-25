@@ -127,7 +127,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* 2. Central Portrait Graphic Stack (Orbiting pills around Dr. Sona's silhouette) */}
+      {/* 2. Central Portrait Graphic Stack (Orbiting pills around Sona's silhouette) */}
       <div className="w-full max-w-4xl mx-auto flex items-center justify-center relative h-[320px] xs:h-[380px] sm:h-[440px] md:h-[500px] z-10 mb-6 lg:mb-12">
 
         {/* Background glowing circle mesh behind portrait */}
@@ -148,7 +148,7 @@ export default function Hero() {
           <div className="relative w-full h-full flex items-end justify-center">
             <img
               src="/hero_image.png"
-              alt="Dr. Sona Gupta"
+              alt="Sona Gupta"
               className="w-full h-full object-contain filter drop-shadow([0_15px_30px_rgba(0,180,216,0.25)]) relative z-10 [mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)] [-webkit-mask-image:linear-gradient(to_bottom,black_75%,transparent_98%)]"
             />
           </div>

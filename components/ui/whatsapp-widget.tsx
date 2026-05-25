@@ -33,7 +33,7 @@ export default function WhatsAppWidget() {
           <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-md pointer-events-none" />
 
           <a
-            href="https://wa.me/918876226682?text=Hello%20Dr.%20Sona%20Gupta%2C%20I%20would%20like%20to%20schedule%20an%20audiology%2Fspeech%20consultation%20visit.%20Please%20let%20me%20know%20your%20available%20slots."
+            href="https://wa.me/918876226682?text=Hello%20Sona%20Gupta%2C%20I%20would%20like%20to%20schedule%20an%20audiology%2Fspeech%20consultation%20visit.%20Please%20let%20me%20know%20your%20available%20slots."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"

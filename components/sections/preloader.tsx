@@ -76,7 +76,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-2xl md:text-3xl font-heading font-bold text-center tracking-[0.18em] uppercase text-brand-white-950 mb-3"
             >
-              Dr. Sona Gupta
+              Sona Gupta
             </motion.h2>
 
             {/* Subtle Specialty Label */}

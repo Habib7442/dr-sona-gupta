@@ -83,7 +83,7 @@ export default function Trust() {
             transition={{ duration: 0.6 }}
             className="px-3.5 py-1.5 rounded-full bg-brand-teal-500/10 border border-brand-teal-500/20 text-[9px] sm:text-[10px] font-sans font-bold tracking-widest text-brand-teal-400 uppercase mb-4"
           >
-            Why Choose Dr. Sona
+            Why Choose Sona
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

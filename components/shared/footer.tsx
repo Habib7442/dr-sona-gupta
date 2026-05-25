@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4 lg:col-span-2">
             <a href="#home" className="flex flex-col group w-fit">
               <span className="text-2xl font-heading font-bold tracking-[0.1em] text-brand-white-950 uppercase group-hover:text-brand-teal-400 transition-colors duration-300">
-                Dr. Sona Gupta
+                Sona Gupta
               </span>
               <span className="text-xs font-sans tracking-[0.2em] uppercase text-brand-teal-400 font-medium">
                 Audiologist & Speech Therapist
@@ -81,7 +81,7 @@ export default function Footer() {
         {/* Bottom copyright details */}
         <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="text-xs font-sans text-brand-white-950/40 text-center sm:text-left">
-            &copy; {currentYear} Dr. Sona Gupta Deb Purkayastha. All rights reserved.
+            &copy; {currentYear} Sona Gupta Deb Purkayastha. All rights reserved.
           </p>
           
           <div className="flex items-center gap-6">

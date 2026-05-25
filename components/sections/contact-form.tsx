@@ -193,7 +193,7 @@ _Submitted via sonagupta.com_`;
                       <CheckCircle2 className="w-16 h-16 text-emerald-400 mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]" />
                       <h3 className="text-2xl font-heading font-bold text-brand-white-950">Inquiry Formatted</h3>
                       <p className="text-sm text-brand-white-950/60 font-sans mt-3 max-w-sm leading-relaxed">
-                        Your consultation details have been beautifully prepared. We are redirecting you to WhatsApp to directly message Dr. Sona Gupta.
+                        Your consultation details have been beautifully prepared. We are redirecting you to WhatsApp to directly message Sona Gupta.
                       </p>
                       
                       <div className="flex flex-col sm:flex-row gap-3 mt-8">

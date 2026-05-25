@@ -65,7 +65,7 @@ export default function Navbar() {
             className="flex flex-col select-none group"
           >
             <span className="text-xl md:text-2xl font-heading font-bold tracking-[0.1em] text-brand-white-950 uppercase group-hover:text-brand-teal-400 transition-colors duration-300">
-              Dr. Sona Gupta
+              Sona Gupta
             </span>
             <span className="text-[10px] md:text-xs font-sans tracking-[0.2em] uppercase text-brand-teal-400 font-medium">
               Audiologist & Therapist

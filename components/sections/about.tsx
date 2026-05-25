@@ -64,7 +64,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-cyan-950 to-transparent z-10" />
                 <img
                   src="/about.png"
-                  alt="Dr. Sona Gupta"
+                  alt="Sona Gupta"
                   className="w-full h-full object-cover relative z-0 transition-transform duration-700 group-hover:scale-105"
                 />
                 
@@ -113,7 +113,7 @@ export default function About() {
             {/* Narrative Biography Body */}
             <div className="space-y-6 text-base text-brand-white-950/80 leading-relaxed font-sans mb-8">
               <motion.p variants={itemVariants}>
-                Dr. Sona Gupta Deb Purkayastha is a qualified{" "}
+                Sona Gupta Deb Purkayastha is a qualified{" "}
                 <span className="text-brand-white-950 font-semibold">Audiologist and Speech Therapist</span>{" "}
                 registered with the{" "}
                 <span className="text-brand-teal-400 font-semibold">Rehabilitation Council of India (RCI)</span>. 
@@ -133,7 +133,7 @@ export default function About() {
               className="flex flex-col items-start border-t border-white/5 pt-6 w-full overflow-hidden"
             >
               <span className="text-lg xs:text-xl sm:text-2xl font-serif italic text-brand-white-950/80 tracking-wide font-medium block w-full whitespace-normal break-words leading-tight">
-                Dr. Sona Gupta Deb Purkayastha
+                Sona Gupta Deb Purkayastha
               </span>
               <span className="text-[10px] sm:text-xs font-sans text-brand-teal-400 font-bold uppercase tracking-wider mt-1.5 block w-full whitespace-normal break-words">
                 Audiologist & Speech Therapist

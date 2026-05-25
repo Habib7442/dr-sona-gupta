@@ -11,11 +11,10 @@ export const SITE_URL = "https://www.sonagupta.com"; // Swappable production URL
 
 export const SEO_KEYWORDS = [
   // 1. Core Brand Keywords
-  "Dr. Sona Gupta Deb Purkayastha",
-  "Dr Sona Gupta Silchar",
-  "Dr Sona Gupta Audiologist",
-  "Dr Sona Gupta Speech Therapist",
   "Sona Gupta Deb Purkayastha",
+  "Sona Gupta Silchar",
+  "Sona Gupta Audiologist",
+  "Sona Gupta Speech Therapist",
   
   // 2. Primary Local Search Intent (Silchar & Barak Valley)
   "best audiologist in Silchar",
@@ -51,9 +50,9 @@ export const SEO_KEYWORDS = [
 ];
 
 export const siteConfig = {
-  name: "Dr. Sona Gupta Deb Purkayastha",
-  shortName: "Dr. Sona Gupta",
-  title: "Dr. Sona Gupta Deb Purkayastha | RCI Certified Audiologist & Speech Therapist",
+  name: "Sona Gupta Deb Purkayastha",
+  shortName: "Sona Gupta",
+  title: "Sona Gupta Deb Purkayastha | RCI Certified Audiologist & Speech Therapist",
   description: "RCI Registered Audiologist & Speech Therapist practicing at Valley Hospital, Silchar, Assam. Expert care for child speech delays, hearing aids, tinnitus, swallowing issues, and neuro-rehabilitation across Barak Valley.",
   url: SITE_URL,
   ogImage: `${SITE_URL}/og_image.jpg`, // Matches public/og_image.jpg
