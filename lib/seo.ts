@@ -56,7 +56,7 @@ export const siteConfig = {
   title: "Dr. Sona Gupta Deb Purkayastha | RCI Certified Audiologist & Speech Therapist",
   description: "RCI Registered Audiologist & Speech Therapist practicing at Valley Hospital, Silchar, Assam. Expert care for child speech delays, hearing aids, tinnitus, swallowing issues, and neuro-rehabilitation across Barak Valley.",
   url: SITE_URL,
-  ogImage: `${SITE_URL}/logo.png`, // Matches public/logo.png
+  ogImage: `${SITE_URL}/og_image.jpg`, // Matches public/og_image.jpg
   telephone: "+918876226682",
   address: {
     streetAddress: "Valley Hospital & Research Centre (P) Ltd., Meherpur",
@@ -92,9 +92,9 @@ export function getMetadata(custom: Partial<Metadata> = {}): Metadata {
       siteName: siteConfig.name,
       images: [
         {
-          url: "/logo.png",
-          width: 800,
-          height: 800,
+          url: "/og_image.jpg",
+          width: 1200,
+          height: 630,
           alt: siteConfig.name,
         }
       ],
@@ -116,7 +116,7 @@ export function getMetadata(custom: Partial<Metadata> = {}): Metadata {
       card: "summary_large_image",
       title: siteConfig.title,
       description: siteConfig.description,
-      images: ["/logo.png"],
+      images: ["/og_image.jpg"],
     },
     // Schema structure fallback variables
     other: {

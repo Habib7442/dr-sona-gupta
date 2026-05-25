@@ -79,7 +79,7 @@ export default function About() {
 
           {/* RIGHT COLUMN: Biography Content (60% width) */}
           <motion.div 
-            className="col-span-12 lg:col-span-7 flex flex-col items-start"
+            className="col-span-1 lg:col-span-7 flex flex-col items-start"
             variants={containerVariants}
           >
             {/* Credential chips row */}
@@ -130,12 +130,12 @@ export default function About() {
             {/* Signature Block */}
             <motion.div 
               variants={itemVariants}
-              className="flex flex-col items-start border-t border-white/5 pt-6 w-full"
+              className="flex flex-col items-start border-t border-white/5 pt-6 w-full overflow-hidden"
             >
-              <span className="text-2xl font-serif italic text-brand-white-950/80 tracking-wide font-medium">
+              <span className="text-lg xs:text-xl sm:text-2xl font-serif italic text-brand-white-950/80 tracking-wide font-medium block w-full whitespace-normal break-words leading-tight">
                 Dr. Sona Gupta Deb Purkayastha
               </span>
-              <span className="text-[10px] sm:text-xs font-sans text-brand-teal-400 font-bold uppercase tracking-wider mt-1.5">
+              <span className="text-[10px] sm:text-xs font-sans text-brand-teal-400 font-bold uppercase tracking-wider mt-1.5 block w-full whitespace-normal break-words">
                 Audiologist & Speech Therapist
               </span>
             </motion.div>
