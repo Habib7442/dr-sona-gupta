@@ -63,7 +63,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-sm text-brand-white-950/60 hover:text-brand-teal-400 transition-colors duration-300"
               >
                 <Phone className="w-4.5 h-4.5 text-brand-teal-400" />
-                <span>8876226682 / 9101108077</span>
+                <span>8876226682</span>
               </a>
 
               <a 

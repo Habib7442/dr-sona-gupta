@@ -7,6 +7,13 @@ import Footer from "@/components/shared/footer";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Hero from "@/components/sections/hero";
+import About from "@/components/sections/about";
+import Services from "@/components/sections/services";
+import Conditions from "@/components/sections/conditions";
+import Trust from "@/components/sections/trust";
+import Location from "@/components/sections/location";
+import ContactForm from "@/components/sections/contact-form";
+import WhatsAppWidget from "@/components/ui/whatsapp-widget";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,17 +46,31 @@ export default function Home() {
               {/* Symptom-Inspired Hero Landing Page */}
               <Hero />
 
-              {/* Temporary Anchor targets to prevent routing bounce */}
-              <div id="about" className="h-40 flex items-center justify-center text-brand-white-950/20 text-xs tracking-widest uppercase">About Area Placeholder</div>
-              <div id="services" className="h-40 flex items-center justify-center text-brand-white-950/20 text-xs tracking-widest uppercase">Services Area Placeholder</div>
-              <div id="conditions" className="h-40 flex items-center justify-center text-brand-white-950/20 text-xs tracking-widest uppercase">Conditions Area Placeholder</div>
-              <div id="location" className="h-40 flex items-center justify-center text-brand-white-950/20 text-xs tracking-widest uppercase">Location Area Placeholder</div>
-              <div id="contact" className="h-40 flex items-center justify-center text-brand-white-950/20 text-xs tracking-widest uppercase">Contact Area Placeholder</div>
+              {/* Asymmetrical Professional About Biography */}
+              <About />
+
+              {/* Floating 3x2 Glassmorphic Services Grid */}
+              <Services />
+
+              {/* Segmented Interactive Conditions Treated Tag Cloud */}
+              <Conditions />
+
+              {/* Premium 2x2 Trust Value Propositions */}
+              <Trust />
+
+              {/* Detailed Clinical Logistics & Dark-Themed Google Maps Iframe */}
+              <Location />
+
+              {/* Secure, Validated Callback Appointment Booking Form */}
+              <ContactForm />
 
             </main>
 
             {/* Luxury Brand Footer */}
             <Footer />
+
+            {/* Floating scroll-linked WhatsApp Direct Chat circular widget */}
+            <WhatsAppWidget />
 
           </motion.div>
         )}

@@ -195,7 +195,7 @@ export default function Hero() {
         >
           <Building className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-teal-400" />
           <span className="text-[8px] sm:text-[10px] font-sans font-bold uppercase tracking-wider text-brand-white-950">
-            Valley Hospital Practice
+            Valley Hospital
           </span>
         </motion.div>
 
@@ -313,21 +313,32 @@ export default function Hero() {
 
       </div>
 
-      {/* 3. Clinical Affiliations Banner (Premium Marquee style at bottom of Hero) */}
+      {/* 3. Clinical Affiliations Banner (Premium structured style at bottom of Hero) */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
+        animate={{ opacity: 0.8 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="w-full border-t border-b border-white/5 py-6 bg-brand-cyan-900/20 relative z-10 select-none overflow-hidden"
+        className="w-full border-t border-b border-white/5 py-8 bg-brand-cyan-900/10 relative z-10 select-none"
       >
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-center gap-y-4 gap-x-8 sm:gap-x-12 md:gap-x-16 text-[10px] sm:text-xs font-sans font-bold tracking-[0.2em] text-brand-white-950/60 uppercase text-center">
-          <span>Valley Hospital & Research Centre</span>
-          <span className="hidden sm:inline text-brand-teal-500">&bull;</span>
-          <span>Rehabilitation Council of India (RCI)</span>
-          <span className="hidden md:inline text-brand-teal-500">&bull;</span>
-          <span>ISHA Association Affiliated</span>
-          <span className="hidden sm:inline text-brand-teal-500">&bull;</span>
-          <span>Barak Valley Health Network</span>
+        <div className="max-w-5xl mx-auto px-6">
+          <ul className="grid grid-cols-2 gap-y-6 gap-x-6 md:gap-x-12 justify-items-center text-[9px] sm:text-xs font-sans font-bold tracking-[0.12em] sm:tracking-[0.15em] text-brand-white-950/70 uppercase">
+            <li className="flex items-center gap-2 sm:gap-3 w-full max-w-[180px] sm:max-w-xs justify-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-400 shrink-0" />
+              <span className="leading-relaxed">Valley Hospital & Research Centre</span>
+            </li>
+            <li className="flex items-center gap-2 sm:gap-3 w-full max-w-[180px] sm:max-w-xs justify-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-400 shrink-0" />
+              <span className="leading-relaxed">Rehabilitation Council of India (RCI)</span>
+            </li>
+            <li className="flex items-center gap-2 sm:gap-3 w-full max-w-[180px] sm:max-w-xs justify-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-400 shrink-0" />
+              <span className="leading-relaxed">ISHA Association Affiliated</span>
+            </li>
+            <li className="flex items-center gap-2 sm:gap-3 w-full max-w-[180px] sm:max-w-xs justify-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-400 shrink-0" />
+              <span className="leading-relaxed">Barak Valley Health Network</span>
+            </li>
+          </ul>
         </div>
       </motion.div>
 
