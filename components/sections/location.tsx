@@ -87,7 +87,6 @@ export default function Location() {
                     <div>
                       <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-brand-teal-400">Clinical Address</h4>
                       <p className="text-sm font-semibold text-brand-white-950 mt-1 leading-snug">Valley Hospital & Research Centre</p>
-                      <p className="text-xs text-brand-white-950/60 mt-0.5 font-medium">OPD Room No. 6, Consultant Block, Ground Floor</p>
                       <p className="text-xs text-brand-white-950/60 mt-0.5">Meherpur, Silchar, Assam 788015</p>
                     </div>
                   </div>

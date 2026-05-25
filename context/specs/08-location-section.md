@@ -17,7 +17,6 @@ The section lists all clinical parameters of her Valley Hospital practice:
 ### 1. Direct Location
 *   **Hospital:** Valley Hospital & Research Centre Pvt. Ltd.
 *   **Address:** Meherpur, Silchar, Assam 788015 (Near Silchar Meherpur Old P.O.)
-*   **Room:** OPD Room No. 6, Consultant Block, Ground Floor
 
 ### 2. Operational Hours
 *   **Monday to Saturday:**
