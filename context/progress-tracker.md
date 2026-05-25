@@ -76,6 +76,10 @@ These questions correspond to missing Dr. Sona data from Section 7 of the PRD:
 
 ## Session Notes
 
+- Mapped official production domain `https://www.sonagupta.com` globally in `lib/seo.ts`.
+- Implemented search crawler instructions config (`app/robots.ts`) automatically serving search indexer directives to Google Search Console and linking to our dynamic sitemap.
+- Developed centralized local SEO & keywords config system (`lib/seo.ts`) mapping targeted search queries for Audiology & Speech Therapy in Silchar/Barak Valley, and integrated it into the root `layout.tsx` dynamic metadata.
+- Implemented dynamic Next.js App Router sitemap generation (`app/sitemap.ts`) for clean crawling and indexing.
 - Resolved mobile face collision: moved the "Diagnostic Care Active" status badge to the bottom-center and staggered all left/right badges (A, B, C, D, E) vertically in alternating columns to completely clear Dr. Sona's face and otoscope device while keeping absolute overlays enabled.
 - Adjusted Hero top padding (`pt-28 sm:pt-32 lg:pt-40`) to completely eliminate navigation collision across all device viewports.
 - Converted "Speech" and "Hearing" headline text to a uniform, premium solid brand coral color (`text-brand-coral-500`) for visual harmony.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { getMetadata } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,32 +24,7 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Dr. Sona Gupta Deb Purkayastha | Audiologist & Speech Therapist",
-  description: "Registered RCI Certified Audiologist & Speech Therapist in Silchar, Assam. Practicing at Valley Hospital & Research Centre. Specializing in speech delays, hearing aids, and swallowing rehabilitation.",
-  keywords: [
-    "Dr Sona Gupta",
-    "Audiologist Silchar",
-    "Speech Therapist Silchar",
-    "Valley Hospital Silchar",
-    "Hearing Aid Silchar",
-    "Speech Therapy Assam",
-    "RCI Certified Therapist Silchar",
-    "Child Speech Delay Silchar"
-  ],
-  authors: [{ name: "Dr. Sona Gupta Deb Purkayastha" }],
-  creator: "Locallify",
-  openGraph: {
-    title: "Dr. Sona Gupta Deb Purkayastha | Audiologist & Speech Therapist",
-    description: "Expert Audiology & Speech Pathology care in Barak Valley. Certified RCI Specialist practicing at Valley Hospital, Silchar.",
-    type: "website",
-    locale: "en_IN",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  }
-};
+export const metadata: Metadata = getMetadata();
 
 export default function RootLayout({
   children,
