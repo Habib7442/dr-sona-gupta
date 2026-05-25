@@ -1,26 +1,188 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* $10,000 Custom Brand Palette (Teal Lux) */
+  --color-brand-cyan-950: #06151C;
+  --color-brand-cyan-900: #0A2430;
+  --color-brand-cyan-800: #0B3A4F;
+  --color-brand-teal-500: #008B9E;
+  --color-brand-teal-400: #00B4D8;
+  --color-brand-coral-500: #E26D5C;
+  --color-brand-coral-600: #C95646;
+  --color-brand-white-950: #F8FAF9;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* $10,000 Custom Biotech Palette mapping to Shadcn vars */
+  --background: #06151C;         /* Deep Midnight */
+  --foreground: #F8FAF9;         /* Soft warm white */
+  
+  --card: #0A2430;               /* Dark Slate-Teal */
+  --card-foreground: #F8FAF9;
+  
+  --popover: #0A2430;
+  --popover-foreground: #F8FAF9;
+  
+  --primary: #008B9E;            /* Glowing Teal */
+  --primary-foreground: #06151C;
+  
+  --secondary: #0B3A4F;          /* Deep Navy Teal */
+  --secondary-foreground: #F8FAF9;
+  
+  --muted: #0A2430;
+  --muted-foreground: #8E9FA8;
+  
+  --accent: #00B4D8;             /* Bright Cyan */
+  --accent-foreground: #06151C;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: rgba(255, 255, 255, 0.08); /* Transparent fine white borders for glass effect */
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #00B4D8;
+  
+  --radius: 1.5rem;              /* Premium rounded corners (24px) */
+  
+  --chart-1: #008B9E;
+  --chart-2: #00B4D8;
+  --chart-3: #E26D5C;
+  --chart-4: #0B3A4F;
+  --chart-5: #8E9FA8;
+  
+  --sidebar: #0A2430;
+  --sidebar-foreground: #F8FAF9;
+  --sidebar-primary: #008B9E;
+  --sidebar-primary-foreground: #06151C;
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+  --sidebar-accent-foreground: #F8FAF9;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #00B4D8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-brand-teal-500/30 selection:text-brand-white-950;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  html {
+    @apply font-sans;
+    background-color: var(--background);
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #06151C;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0B3A4F;
+    border-radius: 5px;
+    border: 2px solid #06151C;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #008B9E;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glassmorphism, Glows, and Soundwaves Custom Utilities */
+@layer utilities {
+  .glass-card {
+    background: rgba(10, 36, 48, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 180, 216, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 180, 216, 0.15), 0 0 1px 1px rgba(0, 180, 216, 0.1);
+  }
+  
+  .glass-panel {
+    background: rgba(6, 21, 28, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .glow-mesh {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.15;
+  }
+  
+  .glow-mesh-teal {
+    background: radial-gradient(circle, #008B9E 0%, transparent 70%);
+  }
+  
+  .glow-mesh-cyan {
+    background: radial-gradient(circle, #00B4D8 0%, transparent 70%);
+  }
+  
+  .glow-mesh-coral {
+    background: radial-gradient(circle, #E26D5C 0%, transparent 70%);
+  }
 }
