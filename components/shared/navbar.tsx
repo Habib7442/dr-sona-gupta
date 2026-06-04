@@ -46,72 +46,72 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 px-2 sm:px-6 py-1.5 sm:py-4 pointer-events-none flex justify-center">
-        <motion.div
-          initial={{ y: -60, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className={cn(
-            "w-full max-w-6xl pointer-events-auto transition-all duration-300 ease-in-out border-2 border-slate-900 shadow-[2px_2px_0px_0px_#0F172A] sm:shadow-[4px_4px_0px_0px_#0F172A] rounded-full px-3.5 sm:px-6 flex items-center justify-between bg-white/95 backdrop-blur-md",
-            isScrolled ? "h-11 sm:h-16" : "h-13 sm:h-20"
-          )}
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={cn(
+          "fixed top-0 left-0 right-0 w-full z-40 transition-all duration-300 ease-in-out border-b flex items-center justify-between px-6 sm:px-12 lg:px-16 bg-[#F3F7F5]/85 backdrop-blur-md",
+          isScrolled 
+            ? "h-16 border-slate-250/80 shadow-[0_4px_30px_rgba(0,0,0,0.015)] bg-[#F3F7F5]/90" 
+            : "h-20 border-transparent"
+        )}
+      >
+        {/* Logo Brand Branding */}
+        <a 
+          href="#home" 
+          onClick={(e) => handleAnchorClick(e, "#home")}
+          className="flex flex-col select-none group cursor-pointer"
         >
-          {/* Logo Brand Branding */}
-          <a 
-            href="#home" 
-            onClick={(e) => handleAnchorClick(e, "#home")}
-            className="flex flex-col select-none group"
+          <span className="text-base sm:text-xl font-heading font-extrabold tracking-[0.06em] text-slate-900 uppercase group-hover:text-brand-teal-500 transition-colors duration-300">
+            Sona Gupta
+          </span>
+          <span className="text-[8px] sm:text-[10px] font-sans tracking-[0.12em] uppercase text-brand-teal-500 font-extrabold leading-none mt-0.5">
+            Audiologist & Therapist
+          </span>
+        </a>
+
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => handleAnchorClick(e, link.href)}
+              className="text-xs font-sans font-extrabold text-slate-700 hover:text-brand-teal-500 py-2 px-4 transition-all duration-200 select-none rounded-full hover:bg-slate-900/5"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Header Action Button (Coral CTA) */}
+        <div className="hidden lg:flex items-center gap-4">
+          <a
+            href="tel:8876226682"
+            className="flex items-center gap-2 text-xs font-sans font-extrabold text-brand-teal-500 hover:text-brand-teal-500/80 transition-colors duration-300 px-3 py-2"
           >
-            <span className="text-xs sm:text-lg md:text-xl font-heading font-extrabold tracking-[0.06em] sm:tracking-[0.08em] text-slate-900 uppercase group-hover:text-teal-600 transition-colors duration-300">
-              Sona Gupta
-            </span>
-            <span className="text-[6.5px] sm:text-[9px] md:text-[10px] font-sans tracking-[0.08em] sm:tracking-[0.15em] uppercase text-teal-600 font-extrabold leading-none mt-0.5">
-              Audiologist & Therapist
-            </span>
+            <Phone className="w-4.5 h-4.5" />
+            <span>Call 8876226682</span>
           </a>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-2">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleAnchorClick(e, link.href)}
-                className="text-xs font-sans font-extrabold text-slate-700 hover:text-slate-900 py-1.5 px-3.5 border-2 border-transparent hover:border-slate-900 hover:bg-[#E2EBE7] rounded-full transition-all duration-200 select-none"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Header Action Button (Coral CTA) */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="tel:8876226682"
-              className="flex items-center gap-2 text-xs font-sans font-extrabold text-teal-600 hover:text-teal-700 transition-colors duration-300 px-3 py-2"
-            >
-              <Phone className="w-4 h-4" />
-              <span>Call 8876226682</span>
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => handleAnchorClick(e, "#contact")}
-              className="px-5 py-2 rounded-full bg-brand-coral-500 text-white text-xs font-sans font-extrabold tracking-wider border-2 border-slate-900 shadow-[2px_2px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer"
-            >
-              Book Appointment
-            </a>
-          </div>
-
-          {/* Mobile Menu Trigger Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-1.5 sm:p-2 rounded-full border-2 border-slate-900 bg-white text-slate-800 hover:bg-slate-50 shadow-[1.5px_1.5px_0px_0px_#0F172A] active:translate-x-[0.5px] active:translate-y-[0.5px] active:shadow-[0.5px_0.5px_0px_0px_#0F172A] transition-all duration-200 focus:outline-none cursor-pointer"
-            aria-label="Toggle menu"
+          <a
+            href="#contact"
+            onClick={(e) => handleAnchorClick(e, "#contact")}
+            className="px-5 py-2.5 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-xs font-sans font-extrabold tracking-wider transition-all duration-250 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
-            {isMobileMenuOpen ? <X className="w-3.5 h-3.5 sm:w-5 sm:h-5" /> : <Menu className="w-3.5 h-3.5 sm:w-5 sm:h-5" />}
-          </button>
-        </motion.div>
-      </header>
+            Book Appointment
+          </a>
+        </div>
+
+        {/* Mobile Menu Trigger Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="lg:hidden p-2 rounded-full border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 transition-all duration-200 focus:outline-none cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </motion.header>
 
       {/* Mobile Drawer Overlay Drawer */}
       <AnimatePresence>
@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 lg:hidden bg-white/98 backdrop-blur-2xl"
+            className="fixed inset-0 z-30 lg:hidden bg-[#F3F7F5]/98 backdrop-blur-2xl"
           >
             <div className="flex flex-col h-full pt-24 sm:pt-32 px-8 pb-10">
               <nav className="flex flex-col gap-6 text-center">
@@ -133,7 +133,7 @@ export default function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleAnchorClick(e, link.href)}
-                    className="text-2xl font-heading font-bold tracking-wide text-slate-800 hover:text-teal-600 transition-colors duration-300"
+                    className="text-2xl font-heading font-bold tracking-wide text-slate-800 hover:text-brand-teal-500 transition-colors duration-300"
                   >
                     {link.label}
                   </motion.a>
@@ -148,7 +148,7 @@ export default function Navbar() {
                   href="tel:8876226682"
                   className="flex items-center justify-center gap-3 py-3 border border-slate-200 rounded-full text-slate-800 text-base font-sans font-semibold hover:bg-slate-50 transition-colors"
                 >
-                  <Phone className="w-5 h-5 text-teal-600" />
+                  <Phone className="w-5 h-5 text-brand-teal-500" />
                   <span>Call 8876226682</span>
                 </motion.a>
                 

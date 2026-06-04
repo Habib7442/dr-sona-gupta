@@ -41,6 +41,7 @@ export default function RootLayout({
         "h-full",
         "antialiased",
         "scroll-smooth",
+        "overflow-x-hidden",
         inter.variable,
         outfit.variable,
         cormorant.variable
@@ -51,7 +52,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className="min-h-full flex flex-col bg-[#F3F7F5] text-slate-900 selection:bg-brand-teal-500/10 selection:text-brand-teal-500 font-sans"
+        className="min-h-full flex flex-col bg-[#F3F7F5] text-slate-900 selection:bg-brand-teal-500/10 selection:text-brand-teal-500 font-sans overflow-x-hidden"
       >
         {children}
       </body>

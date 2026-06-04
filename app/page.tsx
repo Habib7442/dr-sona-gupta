@@ -29,9 +29,8 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col min-h-screen relative overflow-hidden bg-[#F3F7F5] text-slate-900 font-sans"
+        className="flex flex-col min-h-screen relative overflow-x-hidden bg-[#F3F7F5] text-slate-900 font-sans"
         style={{
-          overflow: isLoading ? "hidden" : "visible",
           height: isLoading ? "100vh" : "auto",
         }}
       >

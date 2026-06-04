@@ -24,6 +24,8 @@ Update this file after every meaningful implementation change to maintain full s
   - [x] Refactored brand color variables in `globals.css` (`--color-brand-teal-500` to `#0F766E`, `--color-brand-coral-500` to `#C2410C`, `--muted-foreground` to `#475569`) to guarantee all text combinations pass WCAG AA contrast audits.
   - [x] Replaced raw `<img>` elements in `hero.tsx`, `about.tsx`, and `certificates.tsx` with optimized Next.js `<Image>` tags, setting `priority` preload for the Hero LCP portrait and adding descriptive alt copy.
   - [x] Cleaned up code styling: removed hardcoded hex colors and swapped them for semantic classes (`bg-brand-coral-500`, etc.) in TSX code files.
+  - [x] Redesigned navigation header to a premium flat full-width navbar to align with client preferences.
+  - [x] Resolved a layout scrollbar bug by adding `overflow-x-hidden` clipping rules globally on `html`, `body`, and page wrappers to prevent horizontal scrolling.
 - [x] Redesigned Certificates section layout: replaced text sidebar cards with a clean 4:3 grid displaying full, uncropped certificate images. Key metadata (title, board, status) is beautifully displayed on hover overlay.
 - [x] Converted original high-resolution certificate PNGs (`2MB` each) to optimized WebP (`~200KB` each) using sharp, decreasing section asset sizes by over 90%. Deleted the original PNGs.
 - [x] Removed curvy/wavy SVG dividers between sections to keep the borders clean, straight, and professional without visual intersections.
