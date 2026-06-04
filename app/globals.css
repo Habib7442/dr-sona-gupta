@@ -141,86 +141,113 @@
 }
 
 /* Glassmorphism, Glows, and Soundwaves Custom Utilities */
-@layer utilities {
-  .glass-card {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(13, 148, 136, 0.15);
-    box-shadow: 0 10px 25px -10px rgba(13, 148, 136, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
-    will-change: transform, backdrop-filter;
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .glass-card-hover {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glass-card-hover:hover {
-    transform: translateY(-4px) translate3d(0, 0, 0);
-    border-color: rgba(13, 148, 136, 0.35);
-    box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.16), 0 0 1px 1px rgba(13, 148, 136, 0.08);
-  }
-  
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(13, 148, 136, 0.06);
-    will-change: transform, backdrop-filter;
-    transform: translate3d(0, 0, 0);
-  }
-  .glow-mesh {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.25;
-  }
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  box-shadow: 0 10px 25px -10px rgba(13, 148, 136, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+  will-change: transform, backdrop-filter;
+  transform: translate3d(0, 0, 0);
+}
 
-  /* High-performance radial gradient glow classes that replace expensive CSS blur filters */
-  .bg-glow-teal {
-    background: radial-gradient(circle, rgba(15, 118, 110, 0.08) 0%, transparent 70%);
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px) translate3d(0, 0, 0);
+  border-color: rgba(13, 148, 136, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.16), 0 0 1px 1px rgba(13, 148, 136, 0.08);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(13, 148, 136, 0.06);
+  will-change: transform, backdrop-filter;
+  transform: translate3d(0, 0, 0);
+}
+.glow-mesh {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* High-performance radial gradient glow classes that replace expensive CSS blur filters */
+.bg-glow-teal {
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.08) 0%, transparent 70%);
+}
+.bg-glow-coral {
+  background: radial-gradient(circle, rgba(194, 65, 12, 0.07) 0%, transparent 70%);
+}
+
+.glow-mesh-teal {
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.4) 0%, transparent 70%);
+}
+
+.glow-mesh-cyan {
+  background: radial-gradient(circle, rgba(8, 131, 149, 0.35) 0%, transparent 70%);
+}
+
+.glow-mesh-coral {
+  background: radial-gradient(circle, rgba(242, 106, 54, 0.25) 0%, transparent 70%);
+}
+
+.neo-card-base {
+  border: 2px solid #0F172A;
+  box-shadow: 4px 4px 0px 0px #0F172A;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-card-hover:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px 0px #0F172A;
+}
+
+.neo-btn-base {
+  border: 2px solid #0F172A;
+  box-shadow: 3px 3px 0px 0px #0F172A;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-btn-hover:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px #0F172A;
+}
+
+.neo-btn-hover:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #0F172A;
+}
+
+.clinic-photo {
+  border: 2.5px solid #0A2540;
+  border-radius: 16px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 
+    0 10px 30px -10px rgba(10, 37, 64, 0.15), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
   }
-  .bg-glow-coral {
-    background: radial-gradient(circle, rgba(194, 65, 12, 0.07) 0%, transparent 70%);
+  100% {
+    transform: translate3d(0%, 0, 0);
   }
-  
-  .glow-mesh-teal {
-    background: radial-gradient(circle, rgba(13, 148, 136, 0.4) 0%, transparent 70%);
-  }
-  
-  .glow-mesh-cyan {
-    background: radial-gradient(circle, rgba(8, 131, 149, 0.35) 0%, transparent 70%);
-  }
-  
-  .glow-mesh-coral {
-    background: radial-gradient(circle, rgba(242, 106, 54, 0.25) 0%, transparent 70%);
-  }
-  
-  .neo-card-base {
-    border: 2px solid #0F172A;
-    box-shadow: 4px 4px 0px 0px #0F172A;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .neo-card-hover:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0px 0px #0F172A;
-  }
-  
-  .neo-btn-base {
-    border: 2px solid #0F172A;
-    box-shadow: 3px 3px 0px 0px #0F172A;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  
-  .neo-btn-hover:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px 0px #0F172A;
-  }
-  
-  .neo-btn-hover:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px 0px #0F172A;
-  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 30s linear infinite;
 }

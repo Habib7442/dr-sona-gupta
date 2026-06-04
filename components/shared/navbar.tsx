@@ -5,13 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Conditions", href: "#conditions" },
-  { label: "Location", href: "#location" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Services", href: "/#services" },
+  { label: "Conditions", href: "/#conditions" },
+  { label: "Location", href: "/#location" },
 ];
 
 export default function Navbar() {
@@ -28,17 +30,37 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
+    const isAnchor = href.startsWith("#") || href.startsWith("/#");
     
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
+    if (isAnchor) {
+      const anchorId = href.replace(/^\/#/, "#");
+      
+      if (pathname === "/") {
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        const targetElement = document.querySelector(anchorId);
+        if (targetElement) {
+          const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+        }
+      } else {
+        // If not on the homepage, route back to the homepage with the anchor
+        e.preventDefault();
+        setIsMobileMenuOpen(false);
+        router.push(href);
+      }
+    } else {
+      // Regular page routing
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      router.push(href);
     }
   };
 
@@ -57,8 +79,8 @@ export default function Navbar() {
       >
         {/* Logo Brand Branding */}
         <a 
-          href="#home" 
-          onClick={(e) => handleAnchorClick(e, "#home")}
+          href="/#home" 
+          onClick={(e) => handleAnchorClick(e, "/#home")}
           className="flex items-center gap-2.5 select-none group cursor-pointer"
         >
           <div className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
@@ -104,8 +126,8 @@ export default function Navbar() {
             <span>Call 8876226682</span>
           </a>
           <a
-            href="#contact"
-            onClick={(e) => handleAnchorClick(e, "#contact")}
+            href="/#contact"
+            onClick={(e) => handleAnchorClick(e, "/#contact")}
             className="px-5 py-2.5 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-xs font-sans font-extrabold tracking-wider transition-all duration-250 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             Book Appointment
@@ -165,8 +187,8 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.5 }}
-                  href="#contact"
-                  onClick={(e) => handleAnchorClick(e, "#contact")}
+                  href="/#contact"
+                  onClick={(e) => handleAnchorClick(e, "/#contact")}
                   className="py-4 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-center text-base font-sans font-bold tracking-wide shadow-lg shadow-brand-coral-500/10 transition-all active:scale-95"
                 >
                   Book Appointment

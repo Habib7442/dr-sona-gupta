@@ -15,7 +15,7 @@ export default function Footer() {
           
           {/* Col 1: Identity & Credentials Summary */}
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <a href="#home" className="flex items-center gap-3 group w-fit">
+            <a href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative w-10 h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
                 <Image
                   src="/logo.png"

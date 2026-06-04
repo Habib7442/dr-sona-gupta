@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
+import GalleryMarquee from "@/components/sections/gallery-marquee";
 import Services from "@/components/sections/services";
 import Conditions from "@/components/sections/conditions";
 import Trust from "@/components/sections/trust";
@@ -50,6 +51,9 @@ export default function Home() {
 
           {/* Asymmetrical Professional About Biography */}
           <About />
+
+          {/* Infinite Scroll Clinic Photo Marquee */}
+          <GalleryMarquee />
 
           {/* Floating 3x2 Glassmorphic Services Grid */}
           <Services />
