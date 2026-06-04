@@ -26,6 +26,7 @@ Update this file after every meaningful implementation change to maintain full s
   - [x] Added GPU promotion layers (`will-change: transform`, `transform: translate3d(0,0,0)`) for glass cards/panels to offload composites to the GPU.
 - [x] Integrated brand logo `logo.png` inside the navigation header (Navbar) and footer next to the typography logotypes, and configured it as the high-resolution site favicon (`app/icon.png`) and iOS touch icon (`app/apple-icon.png`).
 - [x] Converted the high-resolution `hero_bg.png` background image to optimized WebP format (`hero_bg.webp`), removed the original raw PNG file, and integrated the WebP version as the background image of the Hero section.
+- [x] Batch converted all 20 gallery image files inside `public/assets/gallery/` to WebP formats. The 19 raw WhatsApp JPEGs were renamed and sorted into `1.webp` through `19.webp`, and `consultation.jpeg` was converted to `consultation.webp` directly without renaming its base name.
 
 - [x] Implemented DESIGN.md audit recommendations (technical, SEO, and accessibility updates):
   - [x] Converted page to be fully server-rendered (SSR/SSG), shipping all page content in the initial HTML rather than conditionally rendering only post-hydration.
