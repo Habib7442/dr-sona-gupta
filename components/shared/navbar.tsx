@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -19,14 +20,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      const next = window.scrollY > 40;
+      setIsScrolled((prev) => (prev === next ? prev : next));
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -61,14 +59,25 @@ export default function Navbar() {
         <a 
           href="#home" 
           onClick={(e) => handleAnchorClick(e, "#home")}
-          className="flex flex-col select-none group cursor-pointer"
+          className="flex items-center gap-2.5 select-none group cursor-pointer"
         >
-          <span className="text-base sm:text-xl font-heading font-extrabold tracking-[0.06em] text-slate-900 uppercase group-hover:text-brand-teal-500 transition-colors duration-300">
-            Sona Gupta
-          </span>
-          <span className="text-[8px] sm:text-[10px] font-sans tracking-[0.12em] uppercase text-brand-teal-500 font-extrabold leading-none mt-0.5">
-            Audiologist & Therapist
-          </span>
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
+            <Image
+              src="/logo.png"
+              alt="Dr. Sona Gupta Deb Purkayastha Brand Logo"
+              fill
+              sizes="(max-width: 640px) 32px, 40px"
+              className="object-contain rounded-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-base sm:text-xl font-heading font-extrabold tracking-[0.06em] text-slate-900 uppercase group-hover:text-brand-teal-500 transition-colors duration-300">
+              Sona Gupta
+            </span>
+            <span className="text-[8px] sm:text-[10px] font-sans tracking-[0.12em] uppercase text-brand-teal-500 font-extrabold leading-none mt-0.5">
+              Audiologist & Therapist
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation Links */}

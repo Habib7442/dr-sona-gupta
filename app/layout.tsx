@@ -25,6 +25,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 import JsonLd from "@/components/shared/json-ld";
+import SmoothScroll from "@/components/shared/smooth-scroll";
 
 export const metadata: Metadata = getMetadata();
 
@@ -40,7 +41,6 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
-        "scroll-smooth",
         "overflow-x-hidden",
         inter.variable,
         outfit.variable,
@@ -54,7 +54,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-[#F3F7F5] text-slate-900 selection:bg-brand-teal-500/10 selection:text-brand-teal-500 font-sans overflow-x-hidden"
       >
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

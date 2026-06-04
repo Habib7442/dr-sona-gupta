@@ -126,8 +126,8 @@ export default function Certificates() {
       className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#F3F7F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Soft Glows */}
-      <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-teal-500/5 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[450px] h-[450px] rounded-full bg-brand-coral-500/5 blur-[125px] pointer-events-none z-0" />
+      <div className="absolute top-[30%] left-[-10%] w-[500px] h-[500px] rounded-full bg-glow-teal pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[450px] h-[450px] rounded-full bg-glow-coral pointer-events-none z-0" />
 
       {/* Decorative sparkles */}
       <motion.div

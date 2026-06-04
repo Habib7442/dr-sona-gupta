@@ -18,6 +18,15 @@ Update this file after every meaningful implementation change to maintain full s
 
 ## Completed
 
+- [x] Smooth Scroll Performance Optimization:
+  - [x] Optimized React scroll event listeners in `navbar.tsx` and `whatsapp-widget.tsx` using passive event options and state gating (prevents redundant component re-renders).
+  - [x] Removed heavy inline CSS filters from Google Maps iframe in `location.tsx` to stop scroll repaints.
+  - [x] Replaced all 15+ background blur elements (`blur-[...px]` absolute divs) with highly-performant native radial-gradients (`bg-glow-teal` and `bg-glow-coral`) to bypass expensive browser Gaussian blur passes.
+  - [x] Integrated Lenis smooth scroll package (`lenis`) for silky-smooth, hardware-accelerated inertia scrolling.
+  - [x] Added GPU promotion layers (`will-change: transform`, `transform: translate3d(0,0,0)`) for glass cards/panels to offload composites to the GPU.
+- [x] Integrated brand logo `logo.png` inside the navigation header (Navbar) and footer next to the typography logotypes, and configured it as the high-resolution site favicon (`app/icon.png`) and iOS touch icon (`app/apple-icon.png`).
+- [x] Converted the high-resolution `hero_bg.png` background image to optimized WebP format (`hero_bg.webp`), removed the original raw PNG file, and integrated the WebP version as the background image of the Hero section.
+
 - [x] Implemented DESIGN.md audit recommendations (technical, SEO, and accessibility updates):
   - [x] Converted page to be fully server-rendered (SSR/SSG), shipping all page content in the initial HTML rather than conditionally rendering only post-hydration.
   - [x] Implemented a `JsonLd` component providing unified Schema.org markup for `MedicalBusiness`, `FAQPage` (FAQ accordion data), and `AggregateRating`/`Review` (testimonials).
@@ -26,6 +35,7 @@ Update this file after every meaningful implementation change to maintain full s
   - [x] Cleaned up code styling: removed hardcoded hex colors and swapped them for semantic classes (`bg-brand-coral-500`, etc.) in TSX code files.
   - [x] Redesigned navigation header to a premium flat full-width navbar to align with client preferences.
   - [x] Resolved a layout scrollbar bug by adding `overflow-x-hidden` clipping rules globally on `html`, `body`, and page wrappers to prevent horizontal scrolling.
+  - [x] Integrated the clinical affiliations banner directly into the Hero background canvas by removing its boxy background overlay and black borders, improving section flow.
 - [x] Redesigned Certificates section layout: replaced text sidebar cards with a clean 4:3 grid displaying full, uncropped certificate images. Key metadata (title, board, status) is beautifully displayed on hover overlay.
 - [x] Converted original high-resolution certificate PNGs (`2MB` each) to optimized WebP (`~200KB` each) using sharp, decreasing section asset sizes by over 90%. Deleted the original PNGs.
 - [x] Removed curvy/wavy SVG dividers between sections to keep the borders clean, straight, and professional without visual intersections.

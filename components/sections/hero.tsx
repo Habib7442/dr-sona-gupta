@@ -48,23 +48,21 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex flex-col items-center justify-center pt-28 sm:pt-32 lg:pt-40 pb-20 lg:pb-32 px-6 relative overflow-hidden select-none bg-[#F3F7F5] text-slate-900"
     >
-      {/* Absolute Backlight glows centered behind elements */}
-      <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[550px] h-[550px] rounded-full bg-brand-teal-500/10 blur-[130px] pointer-events-none z-0" />
-      <div className="absolute bottom-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-brand-coral-500/5 blur-[120px] pointer-events-none z-0" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        <Image
+          src="/hero_bg.webp"
+          alt="Hero Background Graphic"
+          fill
+          priority
+          sizes="100vw"
+          className="object-fill"
+        />
+      </div>
 
-      {/* Premium Audiogram Diagnostic Line Grid (Biotech Blueprint Grid) */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none select-none opacity-70"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(13, 148, 136, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
-            linear-gradient(rgba(13, 148, 136, 0.01) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(13, 148, 136, 0.01) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px, 80px 80px, 20px 20px, 20px 20px',
-        }}
-      />
+      {/* Absolute Backlight glows centered behind elements */}
+      <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[550px] h-[550px] rounded-full bg-glow-teal pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] left-[10%] w-[350px] h-[350px] rounded-full bg-glow-coral pointer-events-none z-0" />
 
       {/* Floating Sparkles in the background */}
       <motion.div
@@ -342,7 +340,7 @@ export default function Hero() {
 
             {/* Right arrow linking pill to circle */}
             <path
-              d="M625 185 Q 560 145 525 175"
+              d="M625 240 Q 565 190 525 215"
               stroke="#0D9488"
               strokeWidth="2.5"
               strokeLinecap="round"
@@ -359,7 +357,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.9 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="w-full border-t-2 border-b-2 border-slate-900 py-8 bg-white/50 relative z-10 select-none shadow-[0_8px_20px_-8px_rgba(0,0,0,0.05)]"
+        className="w-full mt-12 relative z-10 select-none"
       >
         <div className="max-w-5xl mx-auto px-6">
           <ul className="grid grid-cols-2 gap-y-6 gap-x-6 md:gap-x-12 justify-items-center text-[9px] sm:text-xs font-sans font-extrabold tracking-[0.12em] sm:tracking-[0.15em] text-slate-800 uppercase">

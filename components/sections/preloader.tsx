@@ -61,7 +61,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#F3F7F5] text-slate-900 select-none"
         >
           {/* Subtle glowing mesh behind preloader */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-teal-500/10 blur-[100px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-glow-teal pointer-events-none" />
 
           <div className="flex flex-col items-center justify-center z-10 max-w-md px-6">
             {/* Pulsing Audiology Soundwave Graphic */}

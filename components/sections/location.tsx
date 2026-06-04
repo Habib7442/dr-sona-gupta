@@ -31,8 +31,8 @@ export default function Location() {
       className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#FAF8F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Ambient Mesh Glows */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-teal-500/5 blur-[130px] pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-coral-500/5 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-glow-teal pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-glow-coral pointer-events-none z-0" />
 
       {/* Background Sparkles */}
       <motion.div
@@ -182,7 +182,6 @@ export default function Location() {
                 style={{
                   border: 0,
                   borderRadius: "20px",
-                  filter: "contrast(1.04) grayscale(0.05)",
                 }}
                 allowFullScreen={false}
                 loading="lazy"

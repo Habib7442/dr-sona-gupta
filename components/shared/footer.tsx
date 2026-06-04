@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Award, ArrowUp } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,21 +7,32 @@ export default function Footer() {
   return (
     <footer className="bg-[#E2EBE7] border-t-4 border-slate-900 pt-20 pb-10 text-slate-900 relative overflow-hidden select-none">
       {/* Background glow trace in footer */}
-      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-teal-500/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-brand-coral-500/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-glow-teal pointer-events-none" />
+      <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-glow-coral pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
           {/* Col 1: Identity & Credentials Summary */}
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <a href="#home" className="flex flex-col group w-fit">
-              <span className="text-2xl font-heading font-extrabold tracking-[0.1em] text-slate-900 uppercase group-hover:text-teal-600 transition-colors duration-300">
-                Sona Gupta
-              </span>
-              <span className="text-xs font-sans tracking-[0.2em] uppercase text-teal-600 font-bold">
-                Audiologist & Speech Therapist
-              </span>
+            <a href="#home" className="flex items-center gap-3 group w-fit">
+              <div className="relative w-10 h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
+                <Image
+                  src="/logo.png"
+                  alt="Dr. Sona Gupta Deb Purkayastha Brand Logo"
+                  fill
+                  sizes="40px"
+                  className="object-contain rounded-full"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-heading font-extrabold tracking-[0.1em] text-slate-900 uppercase group-hover:text-teal-600 transition-colors duration-300">
+                  Sona Gupta
+                </span>
+                <span className="text-xs font-sans tracking-[0.2em] uppercase text-teal-600 font-bold">
+                  Audiologist & Speech Therapist
+                </span>
+              </div>
             </a>
             
             <p className="text-sm font-sans text-slate-700 max-w-sm mt-2 leading-relaxed font-semibold">

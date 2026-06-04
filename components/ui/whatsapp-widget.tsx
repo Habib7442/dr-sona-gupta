@@ -9,13 +9,10 @@ export default function WhatsAppWidget() {
   useEffect(() => {
     const handleScroll = () => {
       // Show widget once user scrolls past 300px (past the Hero section)
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      const next = window.scrollY > 300;
+      setIsVisible((prev) => (prev === next ? prev : next));
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

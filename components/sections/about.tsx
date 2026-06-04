@@ -39,8 +39,8 @@ export default function About() {
       className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#F3F7F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Backlight Mesh Glow */}
-      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-brand-teal-500/5 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-[5%] right-[5%] w-[350px] h-[350px] rounded-full bg-brand-coral-500/5 blur-[100px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-glow-teal pointer-events-none z-0" />
+      <div className="absolute bottom-[5%] right-[5%] w-[350px] h-[350px] rounded-full bg-glow-coral pointer-events-none z-0" />
 
       {/* Background Sparkles */}
       <motion.div

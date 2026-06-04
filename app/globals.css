@@ -110,7 +110,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 scroll-smooth;
+    @apply border-border outline-ring/50;
   }
   
   body {
@@ -148,13 +148,15 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(13, 148, 136, 0.15);
     box-shadow: 0 10px 25px -10px rgba(13, 148, 136, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02);
+    will-change: transform, backdrop-filter;
+    transform: translate3d(0, 0, 0);
   }
   
   .glass-card-hover {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-card-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px) translate3d(0, 0, 0);
     border-color: rgba(13, 148, 136, 0.35);
     box-shadow: 0 20px 40px -15px rgba(13, 148, 136, 0.16), 0 0 1px 1px rgba(13, 148, 136, 0.08);
   }
@@ -164,15 +166,23 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(13, 148, 136, 0.06);
+    will-change: transform, backdrop-filter;
+    transform: translate3d(0, 0, 0);
   }
-  
   .glow-mesh {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
     z-index: 0;
     pointer-events: none;
     opacity: 0.25;
+  }
+
+  /* High-performance radial gradient glow classes that replace expensive CSS blur filters */
+  .bg-glow-teal {
+    background: radial-gradient(circle, rgba(15, 118, 110, 0.08) 0%, transparent 70%);
+  }
+  .bg-glow-coral {
+    background: radial-gradient(circle, rgba(194, 65, 12, 0.07) 0%, transparent 70%);
   }
   
   .glow-mesh-teal {

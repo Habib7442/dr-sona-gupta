@@ -169,8 +169,8 @@ export default function Services() {
       className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#FAF8F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Backlight Mesh Glows */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-teal-500/5 blur-[130px] pointer-events-none z-0" />
-      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-coral-500/5 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-glow-teal pointer-events-none z-0" />
+      <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-glow-coral pointer-events-none z-0" />
 
       {/* Decorative stars */}
       <motion.div
