@@ -7,7 +7,8 @@
 
 import { Metadata } from "next";
 
-export const SITE_URL = "https://www.sonagupta.com"; // Swappable production URL
+export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.sonagupta.com");
 
 export const SEO_KEYWORDS = [
   // 1. Core Brand Keywords
