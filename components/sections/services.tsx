@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Ear, Volume2, Mic, Baby, Waves, Activity, ArrowUpRight } from "lucide-react";
+import { Ear, Volume2, Mic, Baby, Waves, Activity } from "lucide-react";
 
 interface ServiceItem {
   id: string;
@@ -87,6 +87,51 @@ const SERVICES_DATA: ServiceItem[] = [
   }
 ];
 
+const SERVICE_STYLES: Record<string, { bg: string, text: string, tagBg: string, iconBg: string }> = {
+  "hearing-eval": {
+    bg: "bg-[#E0F2FE]", // Soft blue
+    text: "text-sky-950",
+    tagBg: "bg-[#BAE6FD] border-slate-900 text-sky-900",
+    iconBg: "bg-white text-sky-600 border-slate-350"
+  },
+  "hearing-aid": {
+    bg: "bg-[#ECFDF5]", // Soft mint green
+    text: "text-emerald-950",
+    tagBg: "bg-[#A7F3D0] border-slate-900 text-emerald-900",
+    iconBg: "bg-white text-emerald-600 border-slate-350"
+  },
+  "speech-therapy": {
+    bg: "bg-[#FFF1F2]", // Soft pink/rose
+    text: "text-rose-950",
+    tagBg: "bg-[#FECDD3] border-slate-900 text-rose-900",
+    iconBg: "bg-white text-rose-600 border-slate-350"
+  },
+  "pediatric-dev": {
+    bg: "bg-[#FEF3C7]", // Soft amber
+    text: "text-amber-950",
+    tagBg: "bg-[#FDE68A] border-slate-900 text-amber-900",
+    iconBg: "bg-white text-amber-600 border-slate-350"
+  },
+  "tinnitus-mgmt": {
+    bg: "bg-[#EEF2FF]", // Soft indigo
+    text: "text-indigo-950",
+    tagBg: "bg-[#C7D2FE] border-slate-900 text-indigo-900",
+    iconBg: "bg-white text-indigo-600 border-slate-350"
+  },
+  "dysphagia-care": {
+    bg: "bg-[#F0FDF4]", // Soft sage/green
+    text: "text-green-950",
+    tagBg: "bg-[#BBF7D0] border-slate-900 text-green-900",
+    iconBg: "bg-white text-green-600 border-slate-350"
+  }
+};
+
+const SparkleStar = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+  </svg>
+);
+
 export default function Services() {
   const containerVariants = {
     hidden: {},
@@ -109,14 +154,32 @@ export default function Services() {
     },
   };
 
+  const iconVariants = {
+    hidden: { scale: 1, rotate: 0 },
+    visible: { scale: 1, rotate: 0 },
+    hover: {
+      rotate: [0, -10, 10, -10, 0],
+      transition: { duration: 0.45 }
+    }
+  };
+
   return (
     <section
       id="services"
-      className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-brand-cyan-950 text-brand-white-950 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#FAF8F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Backlight Mesh Glows */}
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-teal-500/5 blur-[130px] pointer-events-none z-0" />
       <div className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-coral-500/5 blur-[130px] pointer-events-none z-0" />
+
+      {/* Decorative stars */}
+      <motion.div
+        animate={{ y: [0, 8, 0], rotate: [0, -15, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 right-12 text-[#F26A36] w-7 h-7 pointer-events-none opacity-40 hidden sm:block"
+      >
+        <SparkleStar />
+      </motion.div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -126,7 +189,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="px-3.5 py-1.5 rounded-full bg-brand-teal-500/10 border border-brand-teal-500/20 text-[9px] sm:text-[10px] font-sans font-bold tracking-widest text-brand-teal-400 uppercase mb-4"
+            className="px-3.5 py-1.5 rounded-full bg-[#E0F2FE] border-2 border-slate-900 text-[10px] font-sans font-extrabold tracking-widest text-slate-800 uppercase mb-4 shadow-[2px_2px_0px_0px_#0F172A]"
           >
             Clinical Offerings
           </motion.div>
@@ -135,14 +198,14 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-brand-white-950 max-w-3xl"
+            className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-slate-900 max-w-3xl"
           >
             Specialized Care for Speech, <br className="hidden sm:inline" />
-            <span className="text-brand-coral-500">Language & Hearing.</span>
+            <span className="text-[#F26A36]">Language & Hearing.</span>
           </motion.h2>
         </div>
 
-        {/* 3x2 Glassmorphic Services Grid */}
+        {/* 3x2 services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -152,42 +215,61 @@ export default function Services() {
         >
           {SERVICES_DATA.map((service) => {
             const Icon = service.icon;
+            const style = SERVICE_STYLES[service.id] || {
+              bg: "bg-white",
+              text: "text-slate-950",
+              tagBg: "bg-slate-100 border-slate-900 text-slate-800",
+              iconBg: "bg-white text-slate-600 border-slate-300"
+            };
+
             return (
               <motion.div
                 key={service.id}
                 variants={cardVariants}
-                className="relative rounded-[24px] p-6 sm:p-8 bg-brand-cyan-900/30 border border-white/5 hover:border-brand-teal-400/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,180,216,0.12)] group overflow-hidden flex flex-col justify-between"
+                whileHover="hover"
+                className={`relative rounded-[28px] p-6 sm:p-8 border-2 border-slate-900 ${style.bg} ${style.text} shadow-[5px_5px_0px_0px_#0F172A] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[8px_8px_0px_0px_#0F172A] transition-all duration-300 group overflow-hidden flex flex-col justify-between cursor-pointer`}
               >
                 <div>
                   {/* Card Header Row */}
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full bg-brand-teal-500/5 border border-brand-teal-500/10 text-[9px] font-sans font-bold tracking-widest text-brand-teal-400/90 uppercase">
+                    <span className={`px-2.5 py-0.5 rounded-full border-2 border-slate-900 text-[9px] font-sans font-extrabold tracking-widest uppercase ${style.tagBg}`}>
                       {service.tag}
                     </span>
-                    <div className="w-11 h-11 rounded-xl bg-brand-teal-500/10 border border-brand-teal-500/20 flex items-center justify-center text-brand-teal-400 group-hover:text-brand-white-950 group-hover:bg-brand-teal-500 transition-all duration-500 group-hover:shadow-[0_0_15px_rgba(0,180,216,0.3)]">
+                    <motion.div 
+                      variants={iconVariants}
+                      className={`w-11 h-11 rounded-xl border-2 border-slate-900 flex items-center justify-center group-hover:text-white group-hover:bg-[#0F172A] transition-all duration-300 ${style.iconBg}`}
+                    >
                       <Icon className="w-5.5 h-5.5" />
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-heading font-semibold text-brand-white-950 mt-6 group-hover:text-brand-teal-400 transition-colors duration-300 flex items-center gap-1.5">
+                  <h3 className="text-xl font-heading font-extrabold mt-6 flex items-center gap-1.5 leading-snug">
                     <span>{service.title}</span>
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-brand-white-950/60 leading-relaxed font-sans mt-3">
+                  <p className="text-sm leading-relaxed font-sans mt-3 opacity-95 font-semibold">
                     {service.description}
                   </p>
                 </div>
 
-                {/* Offerings Bullets */}
-                <div className="mt-6 border-t border-white/5 pt-4">
-                  <ul className="space-y-2">
+                {/* Offerings Bullets checklist */}
+                <div className="mt-6 border-t-2 border-slate-900/10 pt-4">
+                  <ul className="space-y-2.5">
                     {service.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-center gap-2.5 text-xs text-brand-white-950/70 font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-teal-400 shrink-0" />
+                      <motion.li 
+                        key={idx} 
+                        whileHover={{ x: 2 }}
+                        className="flex items-center gap-2.5 text-xs font-sans font-extrabold opacity-95"
+                      >
+                        <div className="w-4 h-4 rounded-md border-2 border-slate-900 bg-white flex items-center justify-center text-slate-900 shrink-0 shadow-[1.5px_1.5px_0px_0px_#0F172A] group-hover:bg-[#FFFBEB] transition-colors">
+                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
                         <span>{feat}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -196,6 +278,8 @@ export default function Services() {
           })}
         </motion.div>
       </div>
+
+
     </section>
   );
 }

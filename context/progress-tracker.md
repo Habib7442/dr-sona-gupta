@@ -6,18 +6,34 @@ Update this file after every meaningful implementation change to maintain full s
 
 ## Current Phase
 
-- **Phase 1: Foundation Setup & Project Specification** (In Progress)
+- **Phase 3: Neo-Brutalist Visual Redesign & Microinteractivity** (Completed)
 
 ---
 
 ## Current Goal
 
-- Implement Unit 10: Centralized SEO metadata and structured Physicians JSON-LD schema config.
+- Ship a highly visual, modernist Neo-Brutalist portfolio with tactile micro-interactions, wavy dividers, patient testimonials, and FAQ accordion.
 
 ---
 
 ## Completed
 
+- [x] Redesigned Certificates section layout: replaced text sidebar cards with a clean 4:3 grid displaying full, uncropped certificate images. Key metadata (title, board, status) is beautifully displayed on hover overlay.
+- [x] Converted original high-resolution certificate PNGs (`2MB` each) to optimized WebP (`~200KB` each) using sharp, decreasing section asset sizes by over 90%. Deleted the original PNGs.
+- [x] Removed curvy/wavy SVG dividers between sections to keep the borders clean, straight, and professional without visual intersections.
+- [x] Optimized floating navbar dimensions, margins, shadows, and brand typography specifically for small viewports (mobile).
+- [x] Contained and clipped the Hero portrait image inside the glowing background circle using overflow-hidden to prevent layout overflow.
+- [x] Fixed syntax/duplicate compilation errors in both `trust.tsx` and `certificates.tsx`.
+- [x] Redesigned header to a custom, floating rounded-full capsule navigation bar with wiggling hover states.
+- [x] Upgraded Hero section with floating vector sparkles, wiggling orbiting badges, and a self-drawing title underline.
+- [x] Upgraded Biography section with hover tilt 3D rotation parallax frame and wiggling credentials.
+- [x] Upgraded Services section with icon wiggles on card hover and interactive checklists.
+- [x] Upgraded Conditions Treated section with bold colored pill capsules and a tactile Neo-Brutalist switcher.
+- [x] Upgraded Trust section with speech-bubble patient testimonials carousel.
+- [x] Upgraded Certificates section with mock doc rotations, ribbons, and bookmark indicators.
+- [x] Upgraded Location timing card with amber cream backdrop, bold borders, and framed map.
+- [x] Upgraded Contact Form inputs to tactile focus states, clicky submit button, and a custom FAQ Accordion.
+- [x] Validated production build (`npm run build`) successfully with zero compiler/typescript warnings or errors.
 - [x] Initialized Next.js workspace structure with Tailwind CSS v4 and Shadcn UI.
 - [x] Read and aligned on the Product Requirements Document (PRD).
 - [x] Configured root `AGENTS.md` as the primary entrance to the context files.
@@ -54,7 +70,7 @@ Update this file after every meaningful implementation change to maintain full s
 
 ## In Progress
 
-- [/] Designing and implementing Unit 10 (Centralized SEO metadata and structured Physicians JSON-LD schema config).
+- [/] Finalizing production build verification and visual checks.
 
 ---
 
@@ -83,39 +99,11 @@ These questions correspond to missing Dr. Sona data from Section 7 of the PRD:
 
 ---
 
-## Session Notes
-
-- Unified official hotline and direct WhatsApp number across the website to `8876226682` as the only contact number, purging secondary helper lines from all active code (footer) and documentation (Unit 8 specs) to ensure absolute consistency.
-- Removed specific room and block details (`OPD Room No. 6, Consultant Block, Ground Floor`) from both the Location active display component ([location.tsx](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/components/sections/location.tsx)) and specification sheets ([08-location-section.md](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/context/specs/08-location-section.md)) to maintain a cleaner, more concise clinical address.
-- Globally removed the prefix "Dr." / "Dr" from all active source files (including navbar, footer, about copy, hero layout, preloader, trust section, and form success cards) and centralized SEO metadata systems. This aligns her identity strictly with "Sona Gupta Deb Purkayastha" / "Sona Gupta" to comply with RCI professional naming regulations.
-- Resolved a critical CSS Grid mobile overflow bug in the About biography section ([about.tsx](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/components/sections/about.tsx)) by changing the biography column spanning class from `col-span-12` to `col-span-1` on mobile. Under a `grid-cols-1` parent, the `col-span-12` class was forcing the browser to create 11 virtual implicit grid tracks, stretching the parent container width far wider than the screen viewport; correcting it to `col-span-1` keeps the section bounded strictly to the mobile screen, allowing all text and credential chips to render fully within bounds without layout truncation or clipping.
-- Fixed a mobile layout overflow bug in the About biography section ([about.tsx](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/components/sections/about.tsx)) by converting the long static-font cursive signature element into a block-level, wrapping-safe responsive element (`text-lg xs:text-xl sm:text-2xl`), which naturally triggered Flexbox wrapping for the credential badges and completely eliminated horizontal scroll on small devices.
-- Configured `public/og_image.jpg` as the official Open Graph (OG) and Twitter card preview thumbnail image in `lib/seo.ts` to show a beautiful, high-quality preview when sharing the link on social platforms.
-- Reviewed and confirmed that the secure Appointment Booking Form beautifully and cleanly captures user selections, processes inputs, and generates a premium-formatted markdown message before redirecting seamlessly to Sona Gupta's direct clinical WhatsApp.
-- Designed and implemented the validated **Callback & Appointment Form** (`components/sections/contact-form.tsx`) powered by async Formspree integration with Indian 10-digit phone checking, styled error messages, loading spinners, and frosted success dialogs.
-- Created the floating glass-green **WhatsApp Direct Chat Widget** (`components/ui/whatsapp-widget.tsx`) that tracks scroll and fades in cleanly.
-- Created Unit 9 specifications file (`context/specs/09-contact-section.md`) detailing validations schemas and pre-filled texts.
-- Designed and implemented the premium **Clinical Logistics & Google Maps Section** (`components/sections/location.tsx`) presenting exact OPD timings, consulting rooms, direct telephone click-to-call hotlines, and a dark-teal color-filtered Google Maps frame.
-- Created Unit 8 specifications file (`context/specs/08-location-section.md`) detailing maps code and logistics values.
-- Removed the placeholder CRR registration code (`CRR No. A74883`) globally from `trust.tsx` and updated specs to maintain full identity privacy until she provides her certified credentials code.
-- Designed and implemented the premium **Trust Cards Section** (`components/sections/trust.tsx`) with a symmetrical 2x2 grid displaying credentials badges, glowing glass icon rings, and vertical HSL teal hover indicators.
-- Created Unit 7 specifications file (`context/specs/07-trust-section.md`) detailing layout values.
-- Designed and implemented the interactive **Conditions Treated Pill Cloud** (`components/sections/conditions.tsx`) with a custom segmented glass switcher. Incorporated the `layoutId` active tab background animation and fluid AnimatePresence tag filters.
-- Created Unit 6 specifications file (`context/specs/06-conditions-section.md`) mapping the clinical conditions and filter categories.
-- Designed and implemented the premium **Clinical Services Glass Grid** (`components/sections/services.tsx`) showcasing the 6 primary service offerings. Created custom list bullets and interactive micro-animations (e.g. icon boxes that shift to glowing teal on card hover).
-- Created Unit 5 technical specifications file (`context/specs/05-services-section.md`) detailing layout grid columns and Lucide icon mappings.
-- Restructured the Hero Section's Clinical Affiliations banner layout into a balanced **2-2 grid** (2 columns, 2 rows) on all screen resolutions, fixing line wrapping on both desktop and mobile devices.
-- Designed and implemented the asymmetric **About Biography Section** (`components/sections/about.tsx`) utilizing a 40/60 visual grid on desktop. Integrated the dedicated biography image `about.png` in the left framed portrait card. Configured this framed portrait on the left to hide on mobile/tablet devices (`hidden lg:flex`) as requested, allowing the narrative biography to expand to full-width (`col-span-12`) for better legibility on smaller viewports.
-- Restructured text layouts to remove literal markdown bold tags (`**`), replacing them with standard HTML bold tags (`<strong>` and styled spans) to prevent syntax characters from rendering in the browser. Removed unneeded placeholder/invented titles like "Founder" and "Verified Specialist". Removed the word "Practice" from the Valley Hospital badge label in both Hero and About sections to keep terminology unified.
-- Created Unit 4 specifications file (`context/specs/04-about-section.md`) defining the technical goals, layout parameters, and verification checklist.
-- Mapped official production domain `https://www.sonagupta.com` globally in `lib/seo.ts`.
-- Implemented search crawler instructions config (`app/robots.ts`) automatically serving search indexer directives to Google Search Console and linking to our dynamic sitemap.
-- Developed centralized local SEO & keywords config system (`lib/seo.ts`) mapping targeted search queries for Audiology & Speech Therapy in Silchar/Barak Valley, and integrated it into the root `layout.tsx` dynamic metadata.
-- Implemented dynamic Next.js App Router sitemap generation (`app/sitemap.ts`) for clean crawling and indexing.
-- Resolved mobile face collision: moved the "Diagnostic Care Active" status badge to the bottom-center and staggered all left/right badges (A, B, C, D, E) vertically in alternating columns to completely clear Sona's face and otoscope device while keeping absolute overlays enabled.
-- Adjusted Hero top padding (`pt-28 sm:pt-32 lg:pt-40`) to completely eliminate navigation collision across all device viewports.
-- Converted "Speech" and "Hearing" headline text to a uniform, premium solid brand coral color (`text-brand-coral-500`) for visual harmony.
-- Optimized portrait dimensions and scaled orbiting badge elements dynamically on mobile for perfect responsiveness.
-- Set up and structured `/context` with 6 detailed context files mapping the luxury design pivot.
-- `AGENTS.md` has been successfully updated to direct subsequent sessions to read from the `/context` files.
+- Optimized mobile layout of navbar: reduced height (`h-13`/`h-11`), header padding (`px-2 py-1.5`), and capsule shadow (`2px` offset), and simplified mobile menu trigger button to render beautifully on small devices without visual bloat.
+- Resolved Hero silhouette image overflow: wrapped the doctor's portrait inside the glowing background circle container with `overflow-hidden` so it clips cleanly at the circle's boundaries and no longer overflows below the circle.
+- Cleaned up section boundaries: removed all curvy/wavy SVG dividers from the bottoms of the sections. This eliminates visual overlap/clashes (double-borders) between the wavy SVGs and the clean horizontal `border-t-2 border-slate-900` borders at the top of the subsequent sections.
+- Optimized & redesigned Certificates layout: converted original large certificate PNGs to highly-efficient WebP images (reducing file sizes from 2MB+ to ~200KB each, a 90%+ savings) and deleted the original PNGs. Rebuilt the layout grid cards to show the certificate images fully and uncropped (in 4:3 landscape aspect ratio) without the layout text columns.
+- Removed Hover Overlays & Modal Footers: based on feedback, completely removed the hover text card overlays on the certificate grid cells to keep the image 100% visible and uncompromised, and deleted the details metadata footer from the full-screen dialog overlay so only the raw certificate document is displayed in the modal frame.
+- Resolved Stacking Context Bug: removed the `z-10` class from the `<main>` root shell in [page.tsx](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/app/page.tsx) and added `-z-10 pointer-events-none` on background glow meshes. This permits the full-screen certificates dialog modal (`z-50`) to overlay the sticky navigation header (`z-40`) correctly.
+- Corrected sub-header text: changed the sub-header badge copy in [trust.tsx](file:///e:/Web%20Dev/dr-sona-gupta-portfolio/components/sections/trust.tsx) from "Why Choose Sona" to "Why Choose Sona Gupta".
 

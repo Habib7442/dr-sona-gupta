@@ -37,7 +37,7 @@ export default function WhatsAppWidget() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
-            className="relative flex items-center justify-center w-14 h-14 bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-500/30 hover:border-emerald-500/50 backdrop-blur-md rounded-full text-emerald-400 hover:text-brand-white-950 transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.35)] scale-100 hover:scale-105 active:scale-95 group cursor-pointer"
+            className="relative flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full text-white transition-all duration-300 shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_35px_rgba(16,185,129,0.45)] scale-100 hover:scale-105 active:scale-95 group cursor-pointer"
           >
             {/* Official Clean Vector WhatsApp Logo */}
             <svg

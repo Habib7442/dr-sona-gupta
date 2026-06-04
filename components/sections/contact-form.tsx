@@ -18,6 +18,59 @@ interface FormErrors {
   clinicalConcern?: string;
 }
 
+const FAQ_DATA = [
+  {
+    question: "What are your consulting hours at Valley Hospital?",
+    answer: "OPD consultation slots are available Monday through Saturday, from 10:00 AM to 1:00 PM and from 4:00 PM to 7:00 PM. Prior booking is highly recommended."
+  },
+  {
+    question: "Do I need a prior appointment for hearing aid trials?",
+    answer: "Yes. Comparative digital trials, real-ear measurements, and custom mold fitting take approximately 45 to 60 minutes. Booking an appointment ensures dedicated care and minimal wait times."
+  },
+  {
+    question: "What age groups do you support for speech therapy?",
+    answer: "I offer lifespan speech-language rehabilitation, ranging from play-based early intervention for toddlers (aged 1.5+ years) to communication support for autism (ASD), ADHD, stuttering, and adult post-stroke stroke rehabilitation (aphasia/dysarthria)."
+  },
+  {
+    question: "How is patient data privacy and clinical confidentiality handled?",
+    answer: "We adhere to strict clinical ethics and confidentiality standards. All patient diagnostics, case history records, and treatment plans are kept fully private and secure."
+  }
+];
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-2 border-slate-900 rounded-[20px] bg-white shadow-[3px_3px_0px_0px_#0F172A] overflow-hidden transition-all duration-200">
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4.5 text-left flex justify-between items-center font-heading font-extrabold text-sm sm:text-base text-slate-900 hover:bg-slate-50 cursor-pointer"
+      >
+        <span className="pr-4">{question}</span>
+        <div className="w-6 h-6 rounded-full border-2 border-slate-900 flex items-center justify-center bg-white text-slate-900 shrink-0 font-bold">
+          <span className="text-xs leading-none">{isOpen ? "−" : "+"}</span>
+        </div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-5 pt-1 text-xs sm:text-sm font-sans font-semibold text-slate-700 leading-relaxed border-t border-slate-900/10">
+              {answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export default function ContactForm() {
   const [inputs, setInputs] = useState<FormInputs>({
     fullName: "",
@@ -130,7 +183,7 @@ _Submitted via sonagupta.com_`;
   return (
     <section
       id="contact"
-      className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-brand-cyan-950 text-brand-white-950 border-t border-white/5"
+      className="py-20 lg:py-32 px-6 relative overflow-hidden select-none bg-[#F3F7F5] text-slate-900 border-t-2 border-slate-900"
     >
       {/* Background Mesh Glows */}
       <div className="absolute top-[30%] left-[10%] w-[450px] h-[450px] rounded-full bg-brand-teal-500/5 blur-[120px] pointer-events-none z-0" />
@@ -141,39 +194,39 @@ _Submitted via sonagupta.com_`;
           
           {/* LEFT COLUMN: Editorial Descriptions & Details (5/12 width) */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="px-3.5 py-1.5 rounded-full bg-brand-teal-500/10 border border-brand-teal-500/20 text-[9px] sm:text-[10px] font-sans font-bold tracking-widest text-brand-teal-400 uppercase mb-4">
+            <div className="px-3.5 py-1.5 rounded-full bg-[#FFFBEB] border-2 border-slate-900 text-[10px] font-sans font-extrabold tracking-widest text-slate-800 uppercase mb-4 shadow-[2px_2px_0px_0px_#0F172A]">
               Schedule a Consultation
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-brand-white-950 mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
               Let's Restore the Joy <br />
-              <span className="text-brand-coral-500">of Connecting.</span>
+              <span className="text-[#F26A36]">of Connecting.</span>
             </h2>
 
-            <p className="text-sm sm:text-base text-brand-white-950/60 leading-relaxed font-sans mb-8 max-w-md">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-sans mb-8 max-w-md font-extrabold">
               Whether you are seeking a detailed diagnostic hearing evaluation or personalized speech therapy, take the first step towards evidence-based clinical care. Submit the request form, or contact our OPD desk directly.
             </p>
 
             {/* Structured Guidelines */}
-            <div className="space-y-4 w-full border-t border-white/5 pt-6">
+            <div className="space-y-4 w-full border-t-2 border-slate-900 pt-6">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-brand-teal-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-sans text-brand-white-950/80 font-medium">Certified clinical evaluations under national standards</span>
+                <ShieldCheck className="w-5 h-5 text-teal-650 shrink-0" />
+                <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Certified clinical evaluations under national standards</span>
               </div>
               <div className="flex items-center gap-3">
-                <HeartHandshake className="w-5 h-5 text-brand-teal-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-sans text-brand-white-950/80 font-medium">Compassionate, patient-centered rehabilitation plans</span>
+                <HeartHandshake className="w-5 h-5 text-teal-650 shrink-0" />
+                <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Compassionate, patient-centered rehabilitation plans</span>
               </div>
               <div className="flex items-center gap-3">
-                <Award className="w-5 h-5 text-brand-teal-400 shrink-0" />
-                <span className="text-xs sm:text-sm font-sans text-brand-white-950/80 font-medium">Complete patient data privacy & clinical confidentiality</span>
+                <Award className="w-5 h-5 text-teal-650 shrink-0" />
+                <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Complete patient data privacy & clinical confidentiality</span>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Glass Form Panel (7/12 width) */}
+          {/* RIGHT COLUMN: Neo-Brutalist Form Panel (7/12 width) */}
           <div className="lg:col-span-7 relative">
-            <div className="rounded-3xl p-6 sm:p-8 bg-brand-cyan-900/30 border border-white/5 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+            <div className="rounded-3xl p-6 sm:p-8 bg-white border-2 border-slate-900 shadow-[6px_6px_0px_0px_#0F172A] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_#0F172A] transition-all duration-300 relative overflow-hidden">
               
               {/* Submission Success Dialog Glass Overlay */}
               <AnimatePresence>
@@ -182,7 +235,7 @@ _Submitted via sonagupta.com_`;
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-brand-cyan-950/95 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-6 text-center"
+                    className="absolute inset-0 bg-white/95 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-6 text-center"
                   >
                     <motion.div
                       initial={{ scale: 0.9, opacity: 0 }}
@@ -190,9 +243,9 @@ _Submitted via sonagupta.com_`;
                       transition={{ delay: 0.15 }}
                       className="flex flex-col items-center"
                     >
-                      <CheckCircle2 className="w-16 h-16 text-emerald-400 mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]" />
-                      <h3 className="text-2xl font-heading font-bold text-brand-white-950">Inquiry Formatted</h3>
-                      <p className="text-sm text-brand-white-950/60 font-sans mt-3 max-w-sm leading-relaxed">
+                      <CheckCircle2 className="w-16 h-16 text-emerald-500 mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]" />
+                      <h3 className="text-2xl font-heading font-extrabold text-slate-900">Inquiry Formatted</h3>
+                      <p className="text-sm text-slate-700 font-sans mt-3 max-w-sm leading-relaxed font-bold">
                         Your consultation details have been beautifully prepared. We are redirecting you to WhatsApp to directly message Sona Gupta.
                       </p>
                       
@@ -201,13 +254,14 @@ _Submitted via sonagupta.com_`;
                           href={whatsappRedirectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-brand-coral-500 hover:bg-brand-coral-600 text-brand-cyan-950 font-sans font-bold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(226,109,92,0.2)] cursor-pointer inline-flex items-center gap-1.5"
+                          className="bg-[#F26A36] text-white font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5"
                         >
                           Send on WhatsApp
                         </a>
                         <button
+                          type="button"
                           onClick={() => setSubmitSuccess(false)}
-                          className="bg-white/5 hover:bg-white/10 text-brand-white-950 border border-white/10 font-sans font-bold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full transition-all duration-300 cursor-pointer"
+                          className="bg-slate-100 text-slate-800 border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
                         >
                           Close Window
                         </button>
@@ -222,7 +276,7 @@ _Submitted via sonagupta.com_`;
                 
                 {/* Server Error Alert */}
                 {serverError && (
-                  <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm font-sans mb-4">
+                  <div className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-650 text-xs sm:text-sm font-sans mb-4">
                     <AlertCircle className="w-5 h-5 shrink-0" />
                     <span>{serverError}</span>
                   </div>
@@ -231,7 +285,7 @@ _Submitted via sonagupta.com_`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Full Name */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="fullName" className="text-xs font-sans font-bold uppercase tracking-wider text-brand-white-950/50">
+                    <label htmlFor="fullName" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
                       Full Name *
                     </label>
                     <input
@@ -242,14 +296,14 @@ _Submitted via sonagupta.com_`;
                       onChange={handleInputChange}
                       disabled={isSubmitting}
                       placeholder="e.g. Sona Gupta"
-                      className={`w-full bg-brand-cyan-950/80 border rounded-xl px-4 py-3 text-sm font-sans text-brand-white-950 focus:outline-none focus:ring-1 transition-all placeholder-brand-white-950/20 ${
+                      className={`w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                         errors.fullName
-                          ? "border-red-500/40 focus:border-red-500 focus:ring-red-500"
-                          : "border-white/10 focus:border-brand-teal-400 focus:ring-brand-teal-400"
+                          ? "border-red-500 focus:ring-1 focus:ring-red-500"
+                          : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
                       }`}
                     />
                     {errors.fullName && (
-                      <span className="text-[10px] text-red-400 mt-0.5 font-medium flex items-center gap-1 font-sans">
+                      <span className="text-[10px] text-red-500 mt-0.5 font-bold flex items-center gap-1 font-sans">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.fullName}</span>
                       </span>
@@ -258,7 +312,7 @@ _Submitted via sonagupta.com_`;
 
                   {/* Phone Number */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phoneNumber" className="text-xs font-sans font-bold uppercase tracking-wider text-brand-white-950/50">
+                    <label htmlFor="phoneNumber" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
                       Phone Number *
                     </label>
                     <input
@@ -269,14 +323,14 @@ _Submitted via sonagupta.com_`;
                       onChange={handleInputChange}
                       disabled={isSubmitting}
                       placeholder="10-digit mobile no."
-                      className={`w-full bg-brand-cyan-950/80 border rounded-xl px-4 py-3 text-sm font-sans text-brand-white-950 focus:outline-none focus:ring-1 transition-all placeholder-brand-white-950/20 ${
+                      className={`w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                         errors.phoneNumber
-                          ? "border-red-500/40 focus:border-red-500 focus:ring-red-500"
-                          : "border-white/10 focus:border-brand-teal-400 focus:ring-brand-teal-400"
+                          ? "border-red-500 focus:ring-1 focus:ring-red-500"
+                          : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
                       }`}
                     />
                     {errors.phoneNumber && (
-                      <span className="text-[10px] text-red-400 mt-0.5 font-medium flex items-center gap-1 font-sans">
+                      <span className="text-[10px] text-red-500 mt-0.5 font-bold flex items-center gap-1 font-sans">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.phoneNumber}</span>
                       </span>
@@ -287,7 +341,7 @@ _Submitted via sonagupta.com_`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Patient Age */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="patientAge" className="text-xs font-sans font-bold uppercase tracking-wider text-brand-white-950/50">
+                    <label htmlFor="patientAge" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
                       Patient Age (Optional)
                     </label>
                     <input
@@ -298,13 +352,13 @@ _Submitted via sonagupta.com_`;
                       onChange={handleInputChange}
                       disabled={isSubmitting}
                       placeholder="e.g. 28"
-                      className="w-full bg-brand-cyan-950/80 border border-white/10 rounded-xl px-4 py-3 text-sm font-sans text-brand-white-950 focus:outline-none focus:border-brand-teal-400 focus:ring-1 focus:ring-brand-teal-400 transition-all placeholder-brand-white-950/20"
+                      className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
                     />
                   </div>
 
                   {/* Clinical Concern Dropdown */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="clinicalConcern" className="text-xs font-sans font-bold uppercase tracking-wider text-brand-white-950/50">
+                    <label htmlFor="clinicalConcern" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
                       Clinical Concern *
                     </label>
                     <div className="relative w-full">
@@ -314,27 +368,27 @@ _Submitted via sonagupta.com_`;
                         value={inputs.clinicalConcern}
                         onChange={handleInputChange}
                         disabled={isSubmitting}
-                        className={`w-full bg-brand-cyan-950/80 border rounded-xl pl-4 pr-10 py-3 text-sm font-sans text-brand-white-950/90 focus:outline-none focus:ring-1 transition-all appearance-none cursor-pointer ${
+                        className={`w-full bg-white border-2 border-slate-900 rounded-xl pl-4 pr-10 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all appearance-none cursor-pointer shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                           errors.clinicalConcern
-                            ? "border-red-500/40 focus:border-red-500 focus:ring-red-500"
-                            : "border-white/10 focus:border-brand-teal-400 focus:ring-brand-teal-400"
+                            ? "border-red-500 focus:ring-1 focus:ring-red-500"
+                            : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
                         }`}
                       >
-                        <option value="" className="bg-[#0A2430]">Select specialization...</option>
-                        <option value="hearing-eval" className="bg-[#0A2430]">Hearing Evaluation & Diagnosis</option>
-                        <option value="hearing-aid" className="bg-[#0A2430]">Hearing Aid Fitting & Trials</option>
-                        <option value="speech-therapy" className="bg-[#0A2430]">Speech-Language Therapy</option>
-                        <option value="pediatric-dev" className="bg-[#0A2430]">Pediatric Language Development</option>
-                        <option value="tinnitus" className="bg-[#0A2430]">Tinnitus Management</option>
-                        <option value="swallowing" className="bg-[#0A2430]">Swallowing Disorders (Dysphagia)</option>
-                        <option value="general" className="bg-[#0A2430]">General Consultation / Other</option>
+                        <option value="" className="bg-white text-slate-800">Select specialization...</option>
+                        <option value="hearing-eval" className="bg-white text-slate-800">Hearing Evaluation & Diagnosis</option>
+                        <option value="hearing-aid" className="bg-white text-slate-800">Hearing Aid Fitting & Trials</option>
+                        <option value="speech-therapy" className="bg-white text-slate-800">Speech-Language Therapy</option>
+                        <option value="pediatric-dev" className="bg-white text-slate-800">Pediatric Language Development</option>
+                        <option value="tinnitus" className="bg-white text-slate-800">Tinnitus Management</option>
+                        <option value="swallowing" className="bg-white text-slate-800">Swallowing Disorders (Dysphagia)</option>
+                        <option value="general" className="bg-white text-slate-800">General Consultation / Other</option>
                       </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-white-950/40 flex items-center">
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500 flex items-center">
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </div>
                     {errors.clinicalConcern && (
-                      <span className="text-[10px] text-red-400 mt-0.5 font-medium flex items-center gap-1 font-sans">
+                      <span className="text-[10px] text-red-500 mt-0.5 font-bold flex items-center gap-1 font-sans">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.clinicalConcern}</span>
                       </span>
@@ -344,7 +398,7 @@ _Submitted via sonagupta.com_`;
 
                 {/* Custom Message */}
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="customMessage" className="text-xs font-sans font-bold uppercase tracking-wider text-brand-white-950/50">
+                  <label htmlFor="customMessage" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
                     Additional Context / Details
                   </label>
                   <textarea
@@ -355,7 +409,7 @@ _Submitted via sonagupta.com_`;
                     disabled={isSubmitting}
                     rows={4}
                     placeholder="Briefly describe what you'd like to consult on..."
-                    className="w-full bg-brand-cyan-950/80 border border-white/10 rounded-xl px-4 py-3 text-sm font-sans text-brand-white-950 focus:outline-none focus:border-brand-teal-400 focus:ring-1 focus:ring-brand-teal-400 transition-all placeholder-brand-white-950/20 resize-none"
+                    className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-all placeholder-slate-450 resize-none shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
                   />
                 </div>
 
@@ -363,7 +417,7 @@ _Submitted via sonagupta.com_`;
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-brand-coral-500 hover:bg-brand-coral-600 text-brand-cyan-950 font-sans font-bold uppercase tracking-wider text-xs py-4 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(226,109,92,0.15)] hover:shadow-[0_0_30px_rgba(226,109,92,0.35)] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-[#F26A36] text-white font-sans font-extrabold uppercase tracking-wider text-xs py-4 px-8 rounded-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-[1.5px] active:translate-y-[1.5px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -381,6 +435,27 @@ _Submitted via sonagupta.com_`;
           </div>
 
         </div>
+
+        {/* ----------------- GOT QUESTIONS? FAQ ACCORDION SECTION ----------------- */}
+        <div className="mt-24 lg:mt-32 max-w-4xl mx-auto">
+          {/* FAQ Header */}
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="px-3.5 py-1.5 rounded-full bg-[#FEF3C7] border-2 border-slate-900 text-[10px] font-sans font-extrabold tracking-widest text-slate-800 uppercase mb-4 shadow-[2px_2px_0px_0px_#0F172A]">
+              Got Questions?
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900">
+              Frequently Asked Questions
+            </h3>
+          </div>
+
+          {/* Accordion List */}
+          <div className="space-y-4">
+            {FAQ_DATA.map((faq, idx) => (
+              <FaqItem key={idx} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
