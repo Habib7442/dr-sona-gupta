@@ -4,6 +4,27 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, Clock, Award, ShieldCheck, HeartHandshake, CheckCircle2, Loader2, AlertCircle, ChevronDown } from "lucide-react";
 
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    className={className} 
+    fill="currentColor" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.706 1.458h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+const CONCERN_LABELS: Record<string, string> = {
+  "hearing-eval": "Hearing Evaluation & Diagnosis",
+  "hearing-aid": "Hearing Aid Fitting & Trials",
+  "speech-therapy": "Speech-Language Therapy",
+  "pediatric-dev": "Pediatric Language Development",
+  "tinnitus": "Tinnitus Management",
+  "swallowing": "Swallowing Disorders (Dysphagia)",
+  "general": "General Consultation / Other",
+};
+
 interface FormInputs {
   fullName: string;
   phoneNumber: string;
@@ -84,6 +105,7 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [whatsappRedirectUrl, setWhatsappRedirectUrl] = useState("");
+  const [lastInputs, setLastInputs] = useState<FormInputs | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
 
   const validate = (): boolean => {
@@ -134,18 +156,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setServerError(null);
 
-    // Map clinical concern ID to readable label
-    const concernLabels: Record<string, string> = {
-      "hearing-eval": "Hearing Evaluation & Diagnosis",
-      "hearing-aid": "Hearing Aid Fitting & Trials",
-      "speech-therapy": "Speech-Language Therapy",
-      "pediatric-dev": "Pediatric Language Development",
-      "tinnitus": "Tinnitus Management",
-      "swallowing": "Swallowing Disorders (Dysphagia)",
-      "general": "General Consultation / Other",
-    };
-
-    const concernLabel = concernLabels[inputs.clinicalConcern] || inputs.clinicalConcern;
+    const concernLabel = CONCERN_LABELS[inputs.clinicalConcern] || inputs.clinicalConcern;
     const ageText = inputs.patientAge ? `${inputs.patientAge} Years` : "Not Specified";
     const detailsText = inputs.customMessage.trim() ? inputs.customMessage.trim() : "No additional details provided";
 
@@ -163,6 +174,7 @@ _Submitted via sonagupta.com_`;
     const encodedMessage = encodeURIComponent(rawMessage);
     const whatsappUrl = `https://wa.me/918876226682?text=${encodedMessage}`;
 
+    setLastInputs({ ...inputs });
     setWhatsappRedirectUrl(whatsappUrl);
     setSubmitSuccess(true);
     setIsSubmitting(false);
@@ -178,6 +190,13 @@ _Submitted via sonagupta.com_`;
       clinicalConcern: "",
       customMessage: "",
     });
+  };
+
+  const handleEditDetails = () => {
+    if (lastInputs) {
+      setInputs({ ...lastInputs });
+    }
+    setSubmitSuccess(false);
   };
 
   return (
@@ -230,40 +249,66 @@ _Submitted via sonagupta.com_`;
               
               {/* Submission Success Dialog Glass Overlay */}
               <AnimatePresence>
-                {submitSuccess && (
+                {submitSuccess && lastInputs && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-white/95 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-6 text-center"
+                    className="absolute inset-0 bg-[#F3F7F5]/98 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-4 sm:p-6 text-center"
                   >
                     <motion.div
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.15 }}
-                      className="flex flex-col items-center"
+                      initial={{ scale: 0.92, y: 10, opacity: 0 }}
+                      animate={{ scale: 1, y: 0, opacity: 1 }}
+                      exit={{ scale: 0.92, y: 10, opacity: 0 }}
+                      transition={{ type: "spring", duration: 0.45 }}
+                      className="flex flex-col items-center w-full max-w-md bg-white border-2 border-slate-900 rounded-[28px] p-6 shadow-[6px_6px_0px_0px_#0F172A] relative overflow-hidden"
                     >
-                      <CheckCircle2 className="w-16 h-16 text-emerald-500 mb-6 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]" />
-                      <h3 className="text-2xl font-heading font-extrabold text-slate-900">Inquiry Formatted</h3>
-                      <p className="text-sm text-slate-700 font-sans mt-3 max-w-sm leading-relaxed font-bold">
-                        Your consultation details have been beautifully prepared. We are redirecting you to WhatsApp to directly message Sona Gupta.
-                      </p>
+                      {/* Success Header Icon */}
+                      <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4 text-emerald-650">
+                        <WhatsAppIcon className="w-6 h-6" />
+                      </div>
                       
-                      <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                      <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 leading-tight">Inquiry Prepared!</h3>
+                      <p className="text-xs text-slate-650 font-sans mt-2 max-w-xs leading-relaxed font-semibold">
+                        Your consultation details have been formatted. Click below to open WhatsApp and send your request.
+                      </p>
+
+                      {/* Display receipt card preview */}
+                      <div className="w-full mt-5 bg-slate-50 border border-dashed border-slate-350 rounded-2xl p-4 text-left font-mono text-[10px] text-slate-700 leading-relaxed relative select-text">
+                        <div className="absolute top-0 right-4 -translate-y-1/2 px-2 py-0.5 bg-brand-teal-500 text-white font-sans text-[8px] font-extrabold uppercase rounded-full tracking-wider shadow-sm">
+                          Message Preview
+                        </div>
+                        <p className="font-extrabold text-slate-900 border-b border-dashed border-slate-200 pb-1.5 mb-2">
+                          📋 APPOINTMENT INQUIRY
+                        </p>
+                        <p className="mb-0.5"><span className="text-slate-450 font-bold">NAME:</span> {lastInputs.fullName.trim()}</p>
+                        <p className="mb-0.5"><span className="text-slate-450 font-bold">PHONE:</span> {lastInputs.phoneNumber.trim()}</p>
+                        <p className="mb-0.5"><span className="text-slate-450 font-bold">AGE:</span> {lastInputs.patientAge ? `${lastInputs.patientAge} Years` : "Not Specified"}</p>
+                        <p className="mb-0.5"><span className="text-slate-450 font-bold">CONCERN:</span> {CONCERN_LABELS[lastInputs.clinicalConcern] || lastInputs.clinicalConcern}</p>
+                        {lastInputs.customMessage.trim() && (
+                          <div className="mt-2 pt-2 border-t border-dashed border-slate-200">
+                            <span className="text-slate-450 font-bold">CONTEXT:</span>
+                            <p className="mt-0.5 text-slate-600 italic truncate max-w-xs">{lastInputs.customMessage.trim()}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row gap-3 mt-6 w-full font-sans">
                         <a
                           href={whatsappRedirectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-brand-coral-500 text-white font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5"
+                          className="flex-grow bg-[#25D366] hover:bg-[#20ba5a] text-white font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs py-3.5 px-5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
                         >
-                          Send on WhatsApp
+                          <WhatsAppIcon className="w-4 h-4" />
+                          <span>Open WhatsApp</span>
                         </a>
                         <button
                           type="button"
-                          onClick={() => setSubmitSuccess(false)}
-                          className="bg-slate-100 text-slate-800 border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
+                          onClick={handleEditDetails}
+                          className="bg-slate-100 text-slate-800 border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs px-5 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
                         >
-                          Close Window
+                          Edit Details
                         </button>
                       </div>
                     </motion.div>
@@ -413,7 +458,6 @@ _Submitted via sonagupta.com_`;
                   />
                 </div>
 
-                {/* Submit Action Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -422,10 +466,13 @@ _Submitted via sonagupta.com_`;
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Sending Request...</span>
+                      <span>Preparing WhatsApp Request...</span>
                     </>
                   ) : (
-                    <span>Request Consultation Slot</span>
+                    <>
+                      <WhatsAppIcon className="w-4.5 h-4.5" />
+                      <span>Book Consultation via WhatsApp</span>
+                    </>
                   )}
                 </button>
 
