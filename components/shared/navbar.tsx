@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/#home" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Gallery", href: "/gallery" },
   { label: "Services", href: "/#services" },
@@ -34,6 +34,20 @@ export default function Navbar() {
   const router = useRouter();
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "/") {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
+      if (pathname === "/") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        router.push("/");
+      }
+      return;
+    }
+
     const isAnchor = href.startsWith("#") || href.startsWith("/#");
     
     if (isAnchor) {
@@ -79,8 +93,8 @@ export default function Navbar() {
       >
         {/* Logo Brand Branding */}
         <a 
-          href="/#home" 
-          onClick={(e) => handleAnchorClick(e, "/#home")}
+          href="/" 
+          onClick={(e) => handleAnchorClick(e, "/")}
           className="flex items-center gap-2.5 select-none group cursor-pointer"
         >
           <div className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
