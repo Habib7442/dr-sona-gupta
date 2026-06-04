@@ -8,7 +8,8 @@
 import { Metadata } from "next";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.sonagupta.com");
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 
+   (process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://www.sonagupta.com"));
 
 export const SEO_KEYWORDS = [
   // 1. Core Brand Keywords
@@ -72,6 +73,32 @@ export const siteConfig = {
  * including structured openGraph cards, local keywords, and crawler robots configs.
  */
 export function getMetadata(custom: Partial<Metadata> = {}): Metadata {
+  const ogImageUrl = `${SITE_URL}/og_image.jpg`;
+
+  const defaultOpenGraph = {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: "./",
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      }
+    ],
+    locale: "en_IN",
+    type: "website" as const,
+  };
+
+  const defaultTwitter = {
+    card: "summary_large_image" as const,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [ogImageUrl],
+  };
+
   return {
     title: {
       default: siteConfig.title,
@@ -85,22 +112,6 @@ export function getMetadata(custom: Partial<Metadata> = {}): Metadata {
     alternates: {
       canonical: "./",
     },
-    openGraph: {
-      title: siteConfig.title,
-      description: siteConfig.description,
-      url: "./",
-      siteName: siteConfig.name,
-      images: [
-        {
-          url: "/og_image.jpg",
-          width: 1200,
-          height: 630,
-          alt: siteConfig.name,
-        }
-      ],
-      locale: "en_IN",
-      type: "website",
-    },
     robots: {
       index: true,
       follow: true,
@@ -112,16 +123,21 @@ export function getMetadata(custom: Partial<Metadata> = {}): Metadata {
         "max-snippet": -1,
       },
     },
-    twitter: {
-      card: "summary_large_image",
-      title: siteConfig.title,
-      description: siteConfig.description,
-      images: ["/og_image.jpg"],
-    },
     // Schema structure fallback variables
     other: {
       "format-detection": "telephone=yes",
     },
-    ...custom
+    ...custom,
+    // Safely merge openGraph and twitter so overriding pages do not drop default images
+    openGraph: {
+      ...defaultOpenGraph,
+      ...custom.openGraph,
+      images: custom.openGraph?.images ?? defaultOpenGraph.images,
+    },
+    twitter: {
+      ...defaultTwitter,
+      ...custom.twitter,
+      images: custom.twitter?.images ?? defaultTwitter.images,
+    },
   };
 }
