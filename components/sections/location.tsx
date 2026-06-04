@@ -25,6 +25,18 @@ export default function Location() {
     },
   };
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetElement = document.getElementById("contact");
+    if (targetElement) {
+      const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section
       id="location"
@@ -159,7 +171,8 @@ export default function Location() {
               <div className="mt-8 border-t border-slate-350 pt-6 flex items-center justify-between relative z-10">
                 <span className="text-xs text-slate-600 font-sans font-bold">Need immediate assistance?</span>
                 <a
-                  href="#contact"
+                  href="/?scrollTo=contact"
+                  onClick={handleContactClick}
                   className="flex items-center gap-1.5 text-xs font-sans font-extrabold uppercase tracking-wider text-brand-teal-500 hover:text-slate-900 transition-colors group"
                 >
                   <span>Book Visit</span>

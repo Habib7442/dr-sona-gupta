@@ -11,9 +11,9 @@ const SparkleStar = ({ className }: { className?: string }) => (
 );
 
 export default function Hero() {
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    const targetElement = document.querySelector(href);
+    const targetElement = document.getElementById(targetId);
     if (targetElement) {
       const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({
@@ -142,8 +142,8 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
         >
           <a
-            href="#contact"
-            onClick={(e) => handleAnchorClick(e, "#contact")}
+            href="/?scrollTo=contact"
+            onClick={(e) => handleAnchorClick(e, "contact")}
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white font-sans font-extrabold tracking-wide text-center border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-205 flex items-center justify-center gap-2 group cursor-pointer"
           >
             <span>Book Appointment</span>

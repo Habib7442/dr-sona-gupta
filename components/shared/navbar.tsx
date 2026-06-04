@@ -8,12 +8,12 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Services", href: "/#services" },
-  { label: "Conditions", href: "/#conditions" },
-  { label: "Location", href: "/#location" },
+  { label: "Home", href: "/", targetId: "home" },
+  { label: "About", href: "/?scrollTo=about", targetId: "about" },
+  { label: "Gallery", href: "/gallery", targetId: null },
+  { label: "Services", href: "/?scrollTo=services", targetId: "services" },
+  { label: "Conditions", href: "/?scrollTo=conditions", targetId: "conditions" },
+  { label: "Location", href: "/?scrollTo=location", targetId: "location" },
 ];
 
 export default function Navbar() {
@@ -33,8 +33,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href === "/") {
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, targetId?: string | null) => {
+    if (href === "/" || targetId === "home") {
       e.preventDefault();
       setIsMobileMenuOpen(false);
       if (pathname === "/") {
@@ -48,15 +48,12 @@ export default function Navbar() {
       return;
     }
 
-    const isAnchor = href.startsWith("#") || href.startsWith("/#");
-    
-    if (isAnchor) {
-      const anchorId = href.replace(/^\/#/, "#");
+    if (targetId) {
+      e.preventDefault();
+      setIsMobileMenuOpen(false);
       
       if (pathname === "/") {
-        e.preventDefault();
-        setIsMobileMenuOpen(false);
-        const targetElement = document.querySelector(anchorId);
+        const targetElement = document.getElementById(targetId);
         if (targetElement) {
           const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
           window.scrollTo({
@@ -65,13 +62,11 @@ export default function Navbar() {
           });
         }
       } else {
-        // If not on the homepage, route back to the homepage with the anchor
-        e.preventDefault();
-        setIsMobileMenuOpen(false);
+        // Route back to home with search param instead of hash fragment
         router.push(href);
       }
     } else {
-      // Regular page routing
+      // Regular page routing (e.g. /gallery)
       e.preventDefault();
       setIsMobileMenuOpen(false);
       router.push(href);
@@ -94,7 +89,7 @@ export default function Navbar() {
         {/* Logo Brand Branding */}
         <a 
           href="/" 
-          onClick={(e) => handleAnchorClick(e, "/")}
+          onClick={(e) => handleAnchorClick(e, "/", "home")}
           className="flex items-center gap-2.5 select-none group cursor-pointer"
         >
           <div className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full border-2 border-slate-900 overflow-hidden bg-white p-0.5 shadow-[1.5px_1.5px_0px_0px_#0F172A]">
@@ -122,7 +117,7 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              onClick={(e) => handleAnchorClick(e, link.href)}
+              onClick={(e) => handleAnchorClick(e, link.href, link.targetId)}
               className="text-xs font-sans font-extrabold text-slate-700 hover:text-brand-teal-500 py-2 px-4 transition-all duration-200 select-none rounded-full hover:bg-slate-900/5"
             >
               {link.label}
@@ -140,8 +135,8 @@ export default function Navbar() {
             <span>Call 8876226682</span>
           </a>
           <a
-            href="/#contact"
-            onClick={(e) => handleAnchorClick(e, "/#contact")}
+            href="/?scrollTo=contact"
+            onClick={(e) => handleAnchorClick(e, "/?scrollTo=contact", "contact")}
             className="px-5 py-2.5 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-xs font-sans font-extrabold tracking-wider transition-all duration-250 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             Book Appointment
@@ -177,7 +172,7 @@ export default function Navbar() {
                     transition={{ delay: index * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     key={link.label}
                     href={link.href}
-                    onClick={(e) => handleAnchorClick(e, link.href)}
+                    onClick={(e) => handleAnchorClick(e, link.href, link.targetId)}
                     className="text-2xl font-heading font-bold tracking-wide text-slate-800 hover:text-brand-teal-500 transition-colors duration-300"
                   >
                     {link.label}
@@ -201,8 +196,8 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.5 }}
-                  href="/#contact"
-                  onClick={(e) => handleAnchorClick(e, "/#contact")}
+                  href="/?scrollTo=contact"
+                  onClick={(e) => handleAnchorClick(e, "/?scrollTo=contact", "contact")}
                   className="py-4 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-center text-base font-sans font-bold tracking-wide shadow-lg shadow-brand-coral-500/10 transition-all active:scale-95"
                 >
                   Book Appointment

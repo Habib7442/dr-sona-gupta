@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Preloader from "@/components/sections/preloader";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
@@ -17,11 +18,39 @@ import Location from "@/components/sections/location";
 import ContactForm from "@/components/sections/contact-form";
 import WhatsAppWidget from "@/components/ui/whatsapp-widget";
 
+function ScrollHandler() {
+  const searchParams = useSearchParams();
+  
+  useEffect(() => {
+    const scrollTo = searchParams.get("scrollTo");
+    if (scrollTo) {
+      const timer = setTimeout(() => {
+        const targetElement = document.getElementById(scrollTo);
+        if (targetElement) {
+          const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+          // Clean the query parameter from the URL bar immediately after scroll
+          window.history.replaceState(null, "", "/");
+        }
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+  }, [searchParams]);
+
+  return null;
+}
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
+      <Suspense fallback={null}>
+        <ScrollHandler />
+      </Suspense>
       {/* Cinematic Entrance Loading Sequence */}
       <Preloader onComplete={() => setIsLoading(false)} />
 
