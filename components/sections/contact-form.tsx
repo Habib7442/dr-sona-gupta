@@ -254,31 +254,31 @@ _Submitted via sonagupta.com_`;
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-[#F3F7F5]/98 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-4 sm:p-6 text-center"
+                    className="absolute inset-0 bg-[#F3F7F5]/98 backdrop-blur-xl z-20 flex flex-col items-center justify-start p-4 overflow-y-auto text-center"
                   >
                     <motion.div
                       initial={{ scale: 0.92, y: 10, opacity: 0 }}
                       animate={{ scale: 1, y: 0, opacity: 1 }}
                       exit={{ scale: 0.92, y: 10, opacity: 0 }}
                       transition={{ type: "spring", duration: 0.45 }}
-                      className="flex flex-col items-center w-full max-w-md bg-white border-2 border-slate-900 rounded-[28px] p-6 shadow-[6px_6px_0px_0px_#0F172A] relative overflow-hidden"
+                      className="flex flex-col items-center w-full max-w-md bg-white border-2 border-slate-900 rounded-[28px] p-5 shadow-[6px_6px_0px_0px_#0F172A] relative overflow-hidden my-auto"
                     >
                       {/* Success Header Icon */}
-                      <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4 text-emerald-650">
-                        <WhatsAppIcon className="w-6 h-6" />
+                      <div className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-3 text-emerald-650">
+                        <WhatsAppIcon className="w-5 h-5" />
                       </div>
                       
-                      <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-slate-900 leading-tight">Inquiry Prepared!</h3>
-                      <p className="text-xs text-slate-650 font-sans mt-2 max-w-xs leading-relaxed font-semibold">
+                      <h3 className="text-lg sm:text-xl font-heading font-extrabold text-slate-900 leading-tight">Inquiry Prepared!</h3>
+                      <p className="text-[11px] text-slate-600 font-sans mt-1.5 max-w-xs leading-relaxed font-semibold">
                         Your consultation details have been formatted. Click below to open WhatsApp and send your request.
                       </p>
 
                       {/* Display receipt card preview */}
-                      <div className="w-full mt-5 bg-slate-50 border border-dashed border-slate-350 rounded-2xl p-4 text-left font-mono text-[10px] text-slate-700 leading-relaxed relative select-text">
+                      <div className="w-full mt-4 bg-slate-50 border border-dashed border-slate-350 rounded-2xl p-3.5 text-left font-mono text-[10px] text-slate-700 leading-relaxed relative select-text">
                         <div className="absolute top-0 right-4 -translate-y-1/2 px-2 py-0.5 bg-brand-teal-500 text-white font-sans text-[8px] font-extrabold uppercase rounded-full tracking-wider shadow-sm">
                           Message Preview
                         </div>
-                        <p className="font-extrabold text-slate-900 border-b border-dashed border-slate-200 pb-1.5 mb-2">
+                        <p className="font-extrabold text-slate-900 border-b border-dashed border-slate-200 pb-1 mb-1.5">
                           📋 APPOINTMENT INQUIRY
                         </p>
                         <p className="mb-0.5"><span className="text-slate-450 font-bold">NAME:</span> {lastInputs.fullName.trim()}</p>
@@ -286,19 +286,19 @@ _Submitted via sonagupta.com_`;
                         <p className="mb-0.5"><span className="text-slate-450 font-bold">AGE:</span> {lastInputs.patientAge ? `${lastInputs.patientAge} Years` : "Not Specified"}</p>
                         <p className="mb-0.5"><span className="text-slate-450 font-bold">CONCERN:</span> {CONCERN_LABELS[lastInputs.clinicalConcern] || lastInputs.clinicalConcern}</p>
                         {lastInputs.customMessage.trim() && (
-                          <div className="mt-2 pt-2 border-t border-dashed border-slate-200">
+                          <div className="mt-1.5 pt-1.5 border-t border-dashed border-slate-200">
                             <span className="text-slate-450 font-bold">CONTEXT:</span>
-                            <p className="mt-0.5 text-slate-600 italic truncate max-w-xs">{lastInputs.customMessage.trim()}</p>
+                            <p className="mt-0.5 text-slate-650 italic truncate max-w-xs">{lastInputs.customMessage.trim()}</p>
                           </div>
                         )}
                       </div>
 
-                      <div className="flex flex-col sm:flex-row gap-3 mt-6 w-full font-sans">
+                      <div className="flex flex-col sm:flex-row gap-2.5 mt-4.5 w-full font-sans">
                         <a
                           href={whatsappRedirectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-grow bg-[#25D366] hover:bg-[#20ba5a] text-white font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs py-3.5 px-5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
+                          className="flex-grow bg-[#25D366] hover:bg-[#20ba5a] text-white font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs py-3.5 px-4 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
                         >
                           <WhatsAppIcon className="w-4 h-4" />
                           <span>Open WhatsApp</span>
@@ -306,7 +306,7 @@ _Submitted via sonagupta.com_`;
                         <button
                           type="button"
                           onClick={handleEditDetails}
-                          className="bg-slate-100 text-slate-800 border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs px-5 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
+                          className="bg-slate-100 text-slate-800 border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] font-sans font-extrabold uppercase tracking-wider text-[10px] sm:text-xs px-4 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
                         >
                           Edit Details
                         </button>
