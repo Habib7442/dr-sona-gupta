@@ -176,7 +176,7 @@ export default function Services() {
       <motion.div
         animate={{ y: [0, 8, 0], rotate: [0, -15, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-12 text-[#F26A36] w-7 h-7 pointer-events-none opacity-40 hidden sm:block"
+        className="absolute top-1/4 right-12 text-brand-coral-500 w-7 h-7 pointer-events-none opacity-40 hidden sm:block"
       >
         <SparkleStar />
       </motion.div>
@@ -201,7 +201,7 @@ export default function Services() {
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-slate-900 max-w-3xl"
           >
             Specialized Care for Speech, <br className="hidden sm:inline" />
-            <span className="text-[#F26A36]">Language & Hearing.</span>
+            <span className="text-brand-coral-500">Language & Hearing.</span>
           </motion.h2>
         </div>
 

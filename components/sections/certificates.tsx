@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, ShieldCheck, CheckCircle2, Bookmark, ExternalLink, X } from "lucide-react";
+import Image from "next/image";
 
 interface CertificateItem {
   id: string;
@@ -85,13 +86,13 @@ const CERT_STYLES: Record<string, { bg: string, tagBg: string, graphicBg: string
     bg: "bg-[#FFF1F2]", // Soft pink
     tagBg: "bg-[#FECDD3] border-slate-900 text-rose-900",
     graphicBg: "bg-white border-slate-900",
-    ribbonBg: "bg-[#F26A36]"
+    ribbonBg: "bg-brand-coral-500"
   },
   "cert-vidyarthi": {
     bg: "bg-[#FEF3C7]", // Soft gold
     tagBg: "bg-[#FDE68A] border-slate-900 text-amber-900",
     graphicBg: "bg-white border-slate-900",
-    ribbonBg: "bg-[#F26A36]"
+    ribbonBg: "bg-brand-coral-500"
   }
 };
 
@@ -132,7 +133,7 @@ export default function Certificates() {
       <motion.div
         animate={{ y: [0, -10, 0], scale: [1, 1.1, 1] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-12 left-12 text-[#F26A36] w-6 h-6 pointer-events-none opacity-30 hidden sm:block"
+        className="absolute top-12 left-12 text-brand-coral-500 w-6 h-6 pointer-events-none opacity-30 hidden sm:block"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
@@ -160,7 +161,7 @@ export default function Certificates() {
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] max-w-3xl"
           >
             Verified Professional <br className="hidden sm:inline" />
-            <span className="text-[#F26A36]">Qualifications & Licensures.</span>
+            <span className="text-brand-coral-500">Qualifications & Licensures.</span>
           </motion.h2>
           
           <motion.p
@@ -198,9 +199,11 @@ export default function Certificates() {
                 className="relative rounded-[24px] p-2 bg-white border-2 border-slate-900 shadow-[5px_5px_0px_0px_#0F172A] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[8px_8px_0px_0px_#0F172A] hover:rotate-[-0.5deg] transition-all duration-300 group cursor-pointer aspect-[4/3] flex items-center justify-center overflow-hidden"
               >
                 {/* Full-width Certificate Image */}
-                <img
+                <Image
                   src={cert.image}
-                  alt={cert.title}
+                  alt={`Certificate of ${cert.title} issued by ${cert.authority}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                   className="w-full h-full object-contain rounded-2xl bg-[#FAF8F5] border border-slate-100 transition-transform duration-500"
                 />
               </motion.div>
@@ -237,11 +240,13 @@ export default function Certificates() {
               </button>
 
               {/* Certificate Image Frame */}
-              <div className="border-2 border-slate-900 rounded-2xl overflow-hidden bg-slate-50 shadow-[3px_3px_0px_0px_#0F172A] flex items-center justify-center">
-                <img
+              <div className="border-2 border-slate-900 rounded-2xl overflow-hidden bg-slate-50 shadow-[3px_3px_0px_0px_#0F172A] flex items-center justify-center relative aspect-[4/3] w-full max-w-3xl mx-auto">
+                <Image
                   src={activeCert.image}
-                  alt={activeCert.title}
-                  className="w-full h-auto max-h-[80vh] object-contain mx-auto"
+                  alt={`Full-size certificate image for ${activeCert.title}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                  className="object-contain"
                 />
               </div>
             </motion.div>

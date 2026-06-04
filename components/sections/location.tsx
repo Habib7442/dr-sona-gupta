@@ -111,12 +111,12 @@ export default function Location() {
                       <h4 className="text-xs font-sans font-extrabold uppercase tracking-wider text-teal-600">Operational Hours</h4>
                       <div className="grid grid-cols-2 gap-y-3 gap-x-4 mt-2 border-t border-slate-350 pt-2.5">
                         <div>
-                          <span className="text-[10px] text-slate-500 uppercase tracking-widest block font-sans font-extrabold">Mon - Sat</span>
+                          <span className="text-[10px] text-slate-600 uppercase tracking-widest block font-sans font-extrabold">Mon - Sat</span>
                           <span className="text-xs font-bold text-slate-800 mt-1 block font-sans">10:00 AM - 1:00 PM</span>
                           <span className="text-xs font-bold text-slate-800 block font-sans">4:00 PM - 7:00 PM</span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-slate-500 uppercase tracking-widest block font-sans font-extrabold">Sunday</span>
+                          <span className="text-[10px] text-slate-600 uppercase tracking-widest block font-sans font-extrabold">Sunday</span>
                           <span className="text-xs font-extrabold text-brand-coral-500 mt-1 block font-sans">Closed</span>
                           <span className="text-[10px] text-slate-600 block leading-snug font-sans mt-0.5 font-bold">Emergency Only</span>
                         </div>
@@ -157,7 +157,7 @@ export default function Location() {
 
               {/* Bottom conversion shortcut */}
               <div className="mt-8 border-t border-slate-350 pt-6 flex items-center justify-between relative z-10">
-                <span className="text-xs text-slate-500 font-sans font-bold">Need immediate assistance?</span>
+                <span className="text-xs text-slate-600 font-sans font-bold">Need immediate assistance?</span>
                 <a
                   href="#contact"
                   className="flex items-center gap-1.5 text-xs font-sans font-extrabold uppercase tracking-wider text-brand-teal-500 hover:text-slate-900 transition-colors group"

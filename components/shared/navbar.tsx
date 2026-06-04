@@ -96,7 +96,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleAnchorClick(e, "#contact")}
-              className="px-5 py-2 rounded-full bg-[#F26A36] text-white text-xs font-sans font-extrabold tracking-wider border-2 border-slate-900 shadow-[2px_2px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer"
+              className="px-5 py-2 rounded-full bg-brand-coral-500 text-white text-xs font-sans font-extrabold tracking-wider border-2 border-slate-900 shadow-[2px_2px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer"
             >
               Book Appointment
             </a>
@@ -158,7 +158,7 @@ export default function Navbar() {
                   transition={{ delay: 0.35, duration: 0.5 }}
                   href="#contact"
                   onClick={(e) => handleAnchorClick(e, "#contact")}
-                  className="py-4 rounded-full bg-[#F26A36] hover:bg-[#D85623] text-white text-center text-base font-sans font-bold tracking-wide shadow-lg shadow-[#F26A36]/10 transition-all active:scale-95"
+                  className="py-4 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white text-center text-base font-sans font-bold tracking-wide shadow-lg shadow-brand-coral-500/10 transition-all active:scale-95"
                 >
                   Book Appointment
                 </motion.a>

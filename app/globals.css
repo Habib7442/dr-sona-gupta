@@ -53,10 +53,10 @@
   --color-brand-cyan-950: #F3F7F5;      /* Light background base */
   --color-brand-cyan-900: #FFFFFF;      /* Clean White surface bg */
   --color-brand-cyan-800: #E2EBE7;      /* Subtle green-gray borders / accents */
-  --color-brand-teal-500: #0D9488;      /* Vibrant clinical Teal - primary accent */
-  --color-brand-teal-400: #088395;      /* Fresh ocean Teal - secondary accent */
-  --color-brand-coral-500: #F26A36;     /* Vibrant Coral-Orange - CTA accent */
-  --color-brand-coral-600: #D85623;     /* Coral-Orange hover */
+  --color-brand-teal-500: #0F766E;      /* Darkened Teal - primary accent (passes contrast against white and light bg) */
+  --color-brand-teal-400: #0D9488;      /* Vibrant secondary Teal */
+  --color-brand-coral-500: #C2410C;     /* Darkened Coral-Orange - CTA accent (passes contrast against white and light bg) */
+  --color-brand-coral-600: #9A2F0F;     /* Coral-Orange hover */
   --color-brand-white-950: #0F172A;     /* Slate-900 primary text color */
 }
 
@@ -71,41 +71,41 @@
   --popover: #FFFFFF;
   --popover-foreground: #0F172A;
   
-  --primary: #0D9488;            /* Emerald Teal */
+  --primary: var(--color-brand-teal-500);            /* Emerald Teal (WCAG AA Compliant) */
   --primary-foreground: #FFFFFF;
   
   --secondary: #E6F3F0;          /* Soft clinical green tint */
-  --secondary-foreground: #0D9488;
+  --secondary-foreground: var(--color-brand-teal-500);
   
   --muted: #E2EBE7;
-  --muted-foreground: #64748B;  /* Slate-500 sub-captions */
+  --muted-foreground: #475569;  /* Slate-600 sub-captions (passes contrast against light bg) */
   
-  --accent: #088395;             /* Ocean Teal */
+  --accent: #0D9488;             /* Ocean Teal */
   --accent-foreground: #FFFFFF;
   
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
-  --border: rgba(13, 148, 136, 0.08); /* Transparent fine teal-slate borders for glass effect */
-  --input: rgba(13, 148, 136, 0.08);
-  --ring: #0D9488;
+  --border: rgba(15, 118, 110, 0.08); /* Transparent fine teal-slate borders for glass effect */
+  --input: rgba(15, 118, 110, 0.08);
+  --ring: var(--color-brand-teal-500);
   
   --radius: 1.5rem;              /* Premium rounded corners (24px) */
   
-  --chart-1: #0D9488;
-  --chart-2: #088395;
-  --chart-3: #F26A36;
+  --chart-1: var(--color-brand-teal-500);
+  --chart-2: var(--color-brand-teal-400);
+  --chart-3: var(--color-brand-coral-500);
   --chart-4: #E2EBE7;
-  --chart-5: #64748B;
+  --chart-5: #475569;
   
   --sidebar: #FFFFFF;
   --sidebar-foreground: #0F172A;
-  --sidebar-primary: #0D9488;
+  --sidebar-primary: var(--color-brand-teal-500);
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: rgba(13, 148, 136, 0.05);
+  --sidebar-accent: rgba(15, 118, 110, 0.05);
   --sidebar-accent-foreground: #0F172A;
-  --sidebar-border: rgba(13, 148, 136, 0.08);
-  --sidebar-ring: #0D9488;
+  --sidebar-border: rgba(15, 118, 110, 0.08);
+  --sidebar-ring: var(--color-brand-teal-500);
 }
 
 @layer base {

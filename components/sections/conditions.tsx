@@ -79,7 +79,7 @@ export default function Conditions() {
       <motion.div
         animate={{ y: [0, 8, 0], rotate: [0, -20, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-16 right-6 md:right-24 text-[#F26A36] w-6 h-6 pointer-events-none opacity-40 hidden sm:block"
+        className="absolute bottom-16 right-6 md:right-24 text-brand-coral-500 w-6 h-6 pointer-events-none opacity-40 hidden sm:block"
       >
         <SparkleStar />
       </motion.div>
@@ -115,7 +115,7 @@ export default function Conditions() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm sm:text-base text-slate-650 leading-relaxed font-sans max-w-2xl mt-4 font-semibold"
+            className="text-sm sm:text-base text-slate-700 leading-relaxed font-sans max-w-2xl mt-4 font-semibold"
           >
             Providing expert diagnostic testing and personalized therapeutic plans for patients across all stages of development and life.
           </motion.p>

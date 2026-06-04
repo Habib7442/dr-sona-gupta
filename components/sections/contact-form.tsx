@@ -200,7 +200,7 @@ _Submitted via sonagupta.com_`;
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-slate-900 mb-6">
               Let's Restore the Joy <br />
-              <span className="text-[#F26A36]">of Connecting.</span>
+              <span className="text-brand-coral-500">of Connecting.</span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-sans mb-8 max-w-md font-extrabold">
@@ -210,15 +210,15 @@ _Submitted via sonagupta.com_`;
             {/* Structured Guidelines */}
             <div className="space-y-4 w-full border-t-2 border-slate-900 pt-6">
               <div className="flex items-center gap-3">
-                <ShieldCheck className="w-5 h-5 text-teal-650 shrink-0" />
+                <ShieldCheck className="w-5 h-5 text-brand-teal-500 shrink-0" />
                 <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Certified clinical evaluations under national standards</span>
               </div>
               <div className="flex items-center gap-3">
-                <HeartHandshake className="w-5 h-5 text-teal-650 shrink-0" />
+                <HeartHandshake className="w-5 h-5 text-brand-teal-500 shrink-0" />
                 <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Compassionate, patient-centered rehabilitation plans</span>
               </div>
               <div className="flex items-center gap-3">
-                <Award className="w-5 h-5 text-teal-650 shrink-0" />
+                <Award className="w-5 h-5 text-brand-teal-500 shrink-0" />
                 <span className="text-xs sm:text-sm font-sans text-slate-800 font-extrabold">Complete patient data privacy & clinical confidentiality</span>
               </div>
             </div>
@@ -254,7 +254,7 @@ _Submitted via sonagupta.com_`;
                           href={whatsappRedirectUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-[#F26A36] text-white font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5"
+                          className="bg-brand-coral-500 text-white font-sans font-extrabold uppercase tracking-wider text-xs px-6 py-3.5 rounded-full border-2 border-slate-900 shadow-[3px_3px_0px_0px_#0F172A] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5"
                         >
                           Send on WhatsApp
                         </a>
@@ -285,7 +285,7 @@ _Submitted via sonagupta.com_`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Full Name */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="fullName" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
+                    <label htmlFor="fullName" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-600">
                       Full Name *
                     </label>
                     <input
@@ -299,7 +299,7 @@ _Submitted via sonagupta.com_`;
                       className={`w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                         errors.fullName
                           ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                          : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
+                          : "focus:border-teal-650 focus:ring-1 focus:ring-teal-650"
                       }`}
                     />
                     {errors.fullName && (
@@ -312,7 +312,7 @@ _Submitted via sonagupta.com_`;
 
                   {/* Phone Number */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phoneNumber" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
+                    <label htmlFor="phoneNumber" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-600">
                       Phone Number *
                     </label>
                     <input
@@ -326,7 +326,7 @@ _Submitted via sonagupta.com_`;
                       className={`w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                         errors.phoneNumber
                           ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                          : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
+                          : "focus:border-teal-650 focus:ring-1 focus:ring-teal-650"
                       }`}
                     />
                     {errors.phoneNumber && (
@@ -341,7 +341,7 @@ _Submitted via sonagupta.com_`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Patient Age */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="patientAge" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
+                    <label htmlFor="patientAge" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-600">
                       Patient Age (Optional)
                     </label>
                     <input
@@ -352,13 +352,13 @@ _Submitted via sonagupta.com_`;
                       onChange={handleInputChange}
                       disabled={isSubmitting}
                       placeholder="e.g. 28"
-                      className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
+                      className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-650 focus:ring-1 focus:ring-teal-650 transition-all placeholder-slate-450 shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
                     />
                   </div>
 
                   {/* Clinical Concern Dropdown */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="clinicalConcern" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
+                    <label htmlFor="clinicalConcern" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-600">
                       Clinical Concern *
                     </label>
                     <div className="relative w-full">
@@ -371,7 +371,7 @@ _Submitted via sonagupta.com_`;
                         className={`w-full bg-white border-2 border-slate-900 rounded-xl pl-4 pr-10 py-3 text-sm font-sans text-slate-800 focus:outline-none transition-all appearance-none cursor-pointer shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A] ${
                           errors.clinicalConcern
                             ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                            : "focus:border-teal-600 focus:ring-1 focus:ring-teal-600"
+                            : "focus:border-teal-650 focus:ring-1 focus:ring-teal-650"
                         }`}
                       >
                         <option value="" className="bg-white text-slate-800">Select specialization...</option>
@@ -383,7 +383,7 @@ _Submitted via sonagupta.com_`;
                         <option value="swallowing" className="bg-white text-slate-800">Swallowing Disorders (Dysphagia)</option>
                         <option value="general" className="bg-white text-slate-800">General Consultation / Other</option>
                       </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500 flex items-center">
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-600 flex items-center">
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </div>
@@ -398,7 +398,7 @@ _Submitted via sonagupta.com_`;
 
                 {/* Custom Message */}
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="customMessage" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-500">
+                  <label htmlFor="customMessage" className="text-xs font-sans font-extrabold uppercase tracking-wider text-slate-600">
                     Additional Context / Details
                   </label>
                   <textarea
@@ -409,7 +409,7 @@ _Submitted via sonagupta.com_`;
                     disabled={isSubmitting}
                     rows={4}
                     placeholder="Briefly describe what you'd like to consult on..."
-                    className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-600 focus:ring-1 focus:ring-teal-600 transition-all placeholder-slate-450 resize-none shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
+                    className="w-full bg-white border-2 border-slate-900 rounded-xl px-4 py-3 text-sm font-sans text-slate-800 focus:outline-none focus:border-teal-650 focus:ring-1 focus:ring-teal-650 transition-all placeholder-slate-450 resize-none shadow-[2px_2px_0px_0px_#0F172A] focus:translate-x-[-1px] focus:translate-y-[-1px] focus:shadow-[3px_3px_0px_0px_#0F172A]"
                   />
                 </div>
 
@@ -417,7 +417,7 @@ _Submitted via sonagupta.com_`;
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#F26A36] text-white font-sans font-extrabold uppercase tracking-wider text-xs py-4 px-8 rounded-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-[1.5px] active:translate-y-[1.5px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white font-sans font-extrabold uppercase tracking-wider text-xs py-4 px-8 rounded-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-[1px] hover:-translate-y-[1px] hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-[1.5px] active:translate-y-[1.5px] active:shadow-[1px_1px_0px_0px_#0F172A] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>

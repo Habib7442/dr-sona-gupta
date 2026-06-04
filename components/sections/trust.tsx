@@ -193,7 +193,7 @@ export default function Trust() {
             className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold tracking-tight leading-[1.15] text-slate-900 max-w-3xl"
           >
             Clinical Excellence & <br className="hidden sm:inline" />
-            <span className="text-[#F26A36]">Compassionate Standards.</span>
+            <span className="text-brand-coral-500">Compassionate Standards.</span>
           </motion.h2>
         </div>
 

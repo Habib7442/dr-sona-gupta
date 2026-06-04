@@ -11,6 +11,18 @@ export default function Preloader({ onComplete }: PreloaderProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
+    // Lock scroll during entrance animation
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isVisible]);
+
+  useEffect(() => {
     // End the preloader animation after 2.8 seconds total
     const timer = setTimeout(() => {
       setIsVisible(false);

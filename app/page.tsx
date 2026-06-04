@@ -25,60 +25,60 @@ export default function Home() {
       <Preloader onComplete={() => setIsLoading(false)} />
 
       {/* Main luxury single-page layout structure */}
-      <AnimatePresence>
-        {!isLoading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col min-h-screen relative overflow-hidden bg-[#F3F7F5] text-slate-900 font-sans"
-          >
-            {/* Glowing blur mesh backgrounds mapped around layout sections */}
-            <div className="glow-mesh glow-mesh-teal top-[-10%] left-[-20%] w-[600px] h-[600px] opacity-10 -z-10 pointer-events-none" />
-            <div className="glow-mesh glow-mesh-cyan top-[30%] right-[-10%] w-[500px] h-[500px] opacity-10 -z-10 pointer-events-none" />
-            <div className="glow-mesh glow-mesh-coral bottom-[15%] left-[5%] w-[450px] h-[450px] opacity-5 -z-10 pointer-events-none" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col min-h-screen relative overflow-hidden bg-[#F3F7F5] text-slate-900 font-sans"
+        style={{
+          overflow: isLoading ? "hidden" : "visible",
+          height: isLoading ? "100vh" : "auto",
+        }}
+      >
+        {/* Glowing blur mesh backgrounds mapped around layout sections */}
+        <div className="glow-mesh glow-mesh-teal top-[-10%] left-[-20%] w-[600px] h-[600px] opacity-10 -z-10 pointer-events-none" />
+        <div className="glow-mesh glow-mesh-cyan top-[30%] right-[-10%] w-[500px] h-[500px] opacity-10 -z-10 pointer-events-none" />
+        <div className="glow-mesh glow-mesh-coral bottom-[15%] left-[5%] w-[450px] h-[450px] opacity-5 -z-10 pointer-events-none" />
 
-            {/* Sticky Glass Navbar */}
-            <Navbar />
+        {/* Sticky Glass Navbar */}
+        <Navbar />
 
-            {/* Page Sections Shell */}
-            <main className="flex-1">
-              
-              {/* Symptom-Inspired Hero Landing Page */}
-              <Hero />
+        {/* Page Sections Shell */}
+        <main className="flex-1">
+          
+          {/* Symptom-Inspired Hero Landing Page */}
+          <Hero />
 
-              {/* Asymmetrical Professional About Biography */}
-              <About />
+          {/* Asymmetrical Professional About Biography */}
+          <About />
 
-              {/* Floating 3x2 Glassmorphic Services Grid */}
-              <Services />
+          {/* Floating 3x2 Glassmorphic Services Grid */}
+          <Services />
 
-              {/* Segmented Interactive Conditions Treated Tag Cloud */}
-              <Conditions />
+          {/* Segmented Interactive Conditions Treated Tag Cloud */}
+          <Conditions />
 
-              {/* Premium 2x2 Trust Value Propositions */}
-              <Trust />
+          {/* Premium 2x2 Trust Value Propositions */}
+          <Trust />
 
-              {/* Verified Professional Certificates Showcase */}
-              <Certificates />
+          {/* Verified Professional Certificates Showcase */}
+          <Certificates />
 
-              {/* Detailed Clinical Logistics & Google Maps Iframe */}
-              <Location />
+          {/* Detailed Clinical Logistics & Google Maps Iframe */}
+          <Location />
 
-              {/* Secure, Validated Callback Appointment Booking Form */}
-              <ContactForm />
+          {/* Secure, Validated Callback Appointment Booking Form */}
+          <ContactForm />
 
-            </main>
+        </main>
 
-            {/* Luxury Brand Footer */}
-            <Footer />
+        {/* Luxury Brand Footer */}
+        <Footer />
 
-            {/* Floating scroll-linked WhatsApp Direct Chat circular widget */}
-            <WhatsAppWidget />
+        {/* Floating scroll-linked WhatsApp Direct Chat circular widget */}
+        <WhatsAppWidget />
 
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </motion.div>
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Award, Ear, Activity, MessageCircle, Building, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 
 const SparkleStar = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -106,13 +107,13 @@ export default function Hero() {
             Creating Comfort
           </motion.span>
           <motion.span variants={itemVariants} className="block mt-1 relative z-10">
-            Through <span className="font-serif italic text-slate-500 font-medium tracking-normal lowercase">better</span>{" "}
+            Through <span className="font-serif italic text-slate-750 font-medium tracking-normal lowercase">better</span>{" "}
             <span className="relative inline-block">
-              <span className="text-[#F26A36]">Speech</span>
+              <span className="text-brand-coral-500">Speech</span>
             </span>{" "}
             <span className="text-slate-900">&</span>{" "}
             <span className="relative inline-block px-1">
-              <span className="text-[#F26A36]">Hearing.</span>
+              <span className="text-brand-coral-500">Hearing.</span>
               {/* Cute hand-drawn style self-drawing underline SVG */}
               <svg className="absolute -bottom-2.5 left-0 w-full h-2 text-amber-500" viewBox="0 0 100 10" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.path
@@ -132,7 +133,7 @@ export default function Hero() {
         {/* Sub-headline centered */}
         <motion.p
           variants={itemVariants}
-          className="text-base sm:text-lg text-slate-650 max-w-xl leading-relaxed mb-6 sm:mb-8 font-extrabold"
+          className="text-base sm:text-lg text-slate-700 max-w-xl leading-relaxed mb-6 sm:mb-8 font-extrabold"
         >
           Registered RCI Audiologist & Speech Therapist bringing premium, compassionate, evidence-based rehabilitation to Barak Valley at Valley Hospital.
         </motion.p>
@@ -145,7 +146,7 @@ export default function Hero() {
           <a
             href="#contact"
             onClick={(e) => handleAnchorClick(e, "#contact")}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#F26A36] text-white font-sans font-extrabold tracking-wide text-center border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-205 flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-coral-500 hover:bg-brand-coral-600 text-white font-sans font-extrabold tracking-wide text-center border-2 border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_0px_#0F172A] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_0px_#0F172A] transition-all duration-205 flex items-center justify-center gap-2 group cursor-pointer"
           >
             <span>Book Appointment</span>
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -177,9 +178,12 @@ export default function Hero() {
           className="absolute w-56 h-56 xs:w-72 xs:h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-br from-teal-500/20 to-cyan-400/5 border-2 border-slate-900 backdrop-blur-sm z-10 overflow-hidden flex items-end justify-center shadow-2xl shadow-teal-550/5"
         >
           <div className="relative w-[90%] h-[95%] flex items-end justify-center pointer-events-none select-none">
-            <img
+            <Image
               src="/hero_image.png"
-              alt="Sona Gupta"
+              alt="Dr. Sona Gupta Deb Purkayastha - RCI Certified Audiologist & Speech Therapist at Valley Hospital Silchar"
+              width={384}
+              height={384}
+              priority
               className="w-full h-full object-contain filter drop-shadow([0_15px_30px_rgba(13,148,136,0.15)]) relative z-10 [mask-image:linear-gradient(to_bottom,black_85%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_99%)]"
             />
           </div>
@@ -202,13 +206,13 @@ export default function Hero() {
         >
           {/* Avatar bubbles */}
           <div className="flex -space-x-1.5 sm:-space-x-2">
-            <div className="w-4 sm:w-6 h-4 sm:h-6 rounded-full bg-teal-600 border border-slate-900 flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-white">A</div>
-            <div className="w-4 sm:w-6 h-4 sm:h-6 rounded-full bg-[#F26A36] border border-slate-900 flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-white">B</div>
+            <div className="w-4 sm:w-6 h-4 sm:h-6 rounded-full bg-brand-teal-500 border border-slate-900 flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-white">A</div>
+            <div className="w-4 sm:w-6 h-4 sm:h-6 rounded-full bg-brand-coral-500 border border-slate-900 flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-white">B</div>
             <div className="w-4 sm:w-6 h-4 sm:h-6 rounded-full bg-slate-100 border border-slate-900 flex items-center justify-center text-[6px] sm:text-[8px] font-bold text-slate-800">C</div>
           </div>
           <div className="flex flex-col select-none">
             <span className="text-[8px] sm:text-[10px] font-heading font-extrabold text-slate-900 leading-none">250+</span>
-            <span className="text-[6px] sm:text-[8px] font-sans text-teal-650 font-extrabold tracking-wider uppercase mt-0.5">Patients</span>
+            <span className="text-[6px] sm:text-[8px] font-sans text-brand-teal-500 font-extrabold tracking-wider uppercase mt-0.5">Patients</span>
           </div>
         </motion.div>
 
@@ -226,7 +230,7 @@ export default function Hero() {
           whileHover={{ scale: 1.05, rotate: [0, 2, -2, 2, 0] }}
           className="absolute top-4 right-1 sm:top-8 sm:right-12 md:right-24 z-20 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full border-2 border-slate-900 bg-[#CCFBF1] shadow-[3px_3px_0px_0px_#0F172A] cursor-pointer"
         >
-          <Building className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-teal-650" />
+          <Building className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-teal-500" />
           <span className="text-[8px] sm:text-[10px] font-sans font-extrabold uppercase tracking-wider text-slate-900">
             Valley Hospital
           </span>
@@ -247,7 +251,7 @@ export default function Hero() {
           whileHover={{ scale: 1.05, rotate: [0, -2, 2, -2, 0] }}
           className="absolute top-28 right-1 sm:top-1/2 sm:right-6 md:right-16 z-20 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full border-2 border-slate-900 bg-[#E0F2FE] shadow-[3px_3px_0px_0px_#0F172A] cursor-pointer"
         >
-          <Ear className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-teal-650" />
+          <Ear className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-teal-500" />
           <span className="text-[8px] sm:text-[9px] font-sans font-extrabold tracking-widest text-slate-900">
             Clinical Audiology
           </span>
@@ -267,7 +271,7 @@ export default function Hero() {
           whileHover={{ scale: 1.05, rotate: [0, 2, -2, 2, 0] }}
           className="absolute top-[160px] left-1 sm:top-auto sm:bottom-12 sm:left-14 md:left-24 z-20 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full border-2 border-slate-900 bg-[#FFEDD5] shadow-[3px_3px_0px_0px_#0F172A] cursor-pointer"
         >
-          <MessageCircle className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-teal-650" />
+          <MessageCircle className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-teal-500" />
           <span className="text-[8px] sm:text-[9px] font-sans font-extrabold tracking-widest text-slate-900">
             Speech pathology
           </span>
@@ -288,7 +292,7 @@ export default function Hero() {
           whileHover={{ scale: 1.05, rotate: [0, -2, 2, -2, 0] }}
           className="absolute top-[220px] right-1 sm:top-auto sm:bottom-16 sm:right-16 sm:left-auto sm:translate-x-0 md:right-28 z-20 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full border-2 border-slate-900 bg-[#FCE7F3] shadow-[3px_3px_0px_0px_#0F172A] cursor-pointer"
         >
-          <MapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-teal-650" />
+          <MapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-teal-500" />
           <span className="text-[8px] sm:text-[9px] font-sans font-extrabold tracking-widest text-slate-900">
             Silchar, Assam
           </span>

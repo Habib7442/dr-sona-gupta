@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-[#E2EBE7] border-t-4 border-slate-900 pt-20 pb-10 text-slate-900 relative overflow-hidden select-none">
       {/* Background glow trace in footer */}
       <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-teal-500/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-[#F26A36]/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-brand-coral-500/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -85,7 +85,7 @@ export default function Footer() {
           </p>
           
           <div className="flex items-center gap-6">
-            <span className="text-[10px] font-sans text-slate-500 uppercase tracking-widest font-extrabold">
+            <span className="text-[10px] font-sans text-slate-700 uppercase tracking-widest font-extrabold">
               Designed by Locallify
             </span>
             

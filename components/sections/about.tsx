@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, Award, HeartHandshake } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const containerVariants = {
@@ -77,9 +78,11 @@ export default function About() {
               <div className="relative rounded-[24px] overflow-hidden bg-slate-50 aspect-[3/4] flex items-end justify-center">
                 {/* Glowing ring backdrop */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent z-10" />
-                <img
+                <Image
                   src="/about.png"
-                  alt="Sona Gupta"
+                  alt="Dr. Sona Gupta Deb Purkayastha inside her practice clinic room at Valley Hospital Silchar"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 384px"
                   className="w-full h-full object-cover relative z-0 transition-transform duration-700 group-hover:scale-105"
                 />
                 

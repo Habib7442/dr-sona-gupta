@@ -18,6 +18,12 @@ Update this file after every meaningful implementation change to maintain full s
 
 ## Completed
 
+- [x] Implemented DESIGN.md audit recommendations (technical, SEO, and accessibility updates):
+  - [x] Converted page to be fully server-rendered (SSR/SSG), shipping all page content in the initial HTML rather than conditionally rendering only post-hydration.
+  - [x] Implemented a `JsonLd` component providing unified Schema.org markup for `MedicalBusiness`, `FAQPage` (FAQ accordion data), and `AggregateRating`/`Review` (testimonials).
+  - [x] Refactored brand color variables in `globals.css` (`--color-brand-teal-500` to `#0F766E`, `--color-brand-coral-500` to `#C2410C`, `--muted-foreground` to `#475569`) to guarantee all text combinations pass WCAG AA contrast audits.
+  - [x] Replaced raw `<img>` elements in `hero.tsx`, `about.tsx`, and `certificates.tsx` with optimized Next.js `<Image>` tags, setting `priority` preload for the Hero LCP portrait and adding descriptive alt copy.
+  - [x] Cleaned up code styling: removed hardcoded hex colors and swapped them for semantic classes (`bg-brand-coral-500`, etc.) in TSX code files.
 - [x] Redesigned Certificates section layout: replaced text sidebar cards with a clean 4:3 grid displaying full, uncropped certificate images. Key metadata (title, board, status) is beautifully displayed on hover overlay.
 - [x] Converted original high-resolution certificate PNGs (`2MB` each) to optimized WebP (`~200KB` each) using sharp, decreasing section asset sizes by over 90%. Deleted the original PNGs.
 - [x] Removed curvy/wavy SVG dividers between sections to keep the borders clean, straight, and professional without visual intersections.
@@ -70,13 +76,13 @@ Update this file after every meaningful implementation change to maintain full s
 
 ## In Progress
 
-- [/] Finalizing production build verification and visual checks.
+- [/] Complete final visual verification.
 
 ---
 
 ## Next Up
 
-1. Complete final production build validations (`npm run build`).
+1. None. All specifications and design audit improvements are successfully integrated.
 
 ---
 

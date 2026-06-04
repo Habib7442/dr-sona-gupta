@@ -24,6 +24,8 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+import JsonLd from "@/components/shared/json-ld";
+
 export const metadata: Metadata = getMetadata();
 
 export default function RootLayout({
@@ -44,6 +46,9 @@ export default function RootLayout({
         cormorant.variable
       )}
     >
+      <head>
+        <JsonLd />
+      </head>
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col bg-[#F3F7F5] text-slate-900 selection:bg-brand-teal-500/10 selection:text-brand-teal-500 font-sans"
